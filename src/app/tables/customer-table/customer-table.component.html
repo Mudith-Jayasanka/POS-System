@@ -1,0 +1,52 @@
+<p>customer-table works!</p>
+
+<div>
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+        <thead>
+          <tr>
+            <th nzCustomFilter>
+              Name
+              <!--<nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menuname">
+                <i nz-icon nzType="search"></i>
+              </nz-filter-trigger>-->
+            </th>
+            <th nzCustomFilter>
+                Contact No
+                <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menunumber">
+                    <i nz-icon nzType="search"></i>
+                  </nz-filter-trigger>
+            </th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of nzTable.data">
+            <td>{{ data.name }}</td>
+            <td>{{ data.phoneNumber }}</td>
+            <td>{{ data.address }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    <!--<nz-dropdown-menu #menuname="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+          <div class="search-box">
+            <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+            <button nz-button nzSize="small" nzType="primary" (click)="searchname()" class="search-button">
+              Search
+            </button>
+            <button nz-button nzSize="small" (click)="resetname()">Reset</button>
+          </div>
+        </div>
+      </nz-dropdown-menu>-->
+      <nz-dropdown-menu #menunumber="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+          <div class="search-box">
+            <input type="text" nz-input placeholder="Search number" [(ngModel)]="searchValue" />
+            <button nz-button nzSize="small" nzType="primary" (click)="searchnumber()" class="search-button">
+              Search
+            </button>
+            <button nz-button nzSize="small" (click)="resetnumber()">Reset</button>
+          </div>
+        </div>
+      </nz-dropdown-menu>
+  </div>

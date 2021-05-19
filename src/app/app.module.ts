@@ -18,6 +18,7 @@ import { CustomerTableComponent } from './tables/customer-table/customer-table.c
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { AddOrderPageComponent } from './pages/add-order-page/add-order-page.component';
 import { AddOrderTableComponent } from './tables/add-order-table/add-order-table.component';
+import { AddCustomersComponent } from './pages/add-customers/add-customers.component';
 
 
 registerLocaleData(hi);
@@ -28,7 +29,8 @@ registerLocaleData(hi);
     HomePageComponent,
     CustomerTableComponent,
     AddOrderPageComponent,
-    AddOrderTableComponent
+    AddOrderTableComponent,
+    AddCustomersComponent
   ],
   imports: [
     BrowserModule,

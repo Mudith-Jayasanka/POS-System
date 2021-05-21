@@ -1,7 +1,7 @@
 [class*="col-"] {
 	float:left;
     padding: 0;
-border: 1px solid red; /*remove this line after */
+/*border: 1px solid red; /* remove this line after */
 
 }
 .col-1 {width: 8.33%;}
@@ -19,7 +19,7 @@ border: 1px solid red; /*remove this line after */
 
 div{
     align-items: center;
-    border: 1px solid red;
+   /* border: 1px solid red; */
    
 }
 
@@ -34,7 +34,7 @@ input{
   margin-left:10%;
   margin-bottom: 0.5%;
   padding-left: 15px;
-  background-color: #dbdbdb;
+  background-color: #EBEBEB;
   border: none;
   border-radius: 15px;
   cursor: text;
@@ -80,3 +80,26 @@ nz-select {
     border-radius: 4px;
     padding: 4px 11px;
   }
+
+  button {
+
+    border:none;
+    font-size: 18px; 
+    background-color: #037c03;
+     border-radius: 15px; 
+     color: white; 
+     padding: 5px;
+  }
+
+  button:hover{
+    border:none;
+    font-size: 18px; 
+    background-color: #32aa24;
+     border-radius: 15px; 
+     color: white; 
+     padding: 5px;
+     
+  }
+
+  
+

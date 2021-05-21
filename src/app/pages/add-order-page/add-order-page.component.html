@@ -1,6 +1,10 @@
 <div>
     <div class="topbox"> <!-- | green box |  -->
-        <img style="width:160px;position: relative;left: 45%;top: 10px;" src="/assets/nalogow.png" alt="Logo Na tree">
+        <a href="#" style="position: absolute;bottom: 17%;left:2% " > 
+            <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
+
+        <img style="position: relative;left: 40%;top: 10px; height: 67px;" src="/assets/addordertxt.png" alt="add order text">
+        <img style="position: fixed; right:0%; top: 10px; height: 67px;" src="/assets/nalogow.png" alt="Logo Na tree">
     </div>
     <div class="hero-image"><!-- | background image |  -->
 
@@ -9,16 +13,16 @@
             <p >Order Date : 00/00/2021</p>
             <form action="/action_page.php">
                 <!--<input type="text" [(ngModel)]="matName" id="fname" name="firstname" >-->
-                <label for="ino" style="font-size: 20px;">Invoice No :</label>
-                <input type="text" [(ngModel)]="InvoiceNo" id="ino" name="Invoice No" placeholder="placeholder" >
-                <label for="ono">Order no :</label>
-                <input type="text" [(ngModel)]="OrderNo" id="ono" name="Order no" placeholder="placeholder" >
-                <label for="sd" style="font-size: 20px;">Supply date :</label>
-                <input type="text" [(ngModel)]="SupplyDate" id="sd" name="Supply date" placeholder="placeholder" >
-                <label for="st">Supply time:</label>
-                <input type="text" [(ngModel)]="SupplyTime" id="st" name="lastname" placeholder="placeholder">
-                <label for="srn">supply ref no:</label>
-                <input type="text" [(ngModel)]="SuplierRefNo" id="srn" name="lastname" placeholder="placeholder">
+                <label for="ino" style="font-size: 20px; bottom: 62%;">Invoice No :</label>
+                <input type="text" [(ngModel)]="InvoiceNo" id="ino" name="Invoice No" placeholder="XXXX" style="bottom: 60%;">
+                <label for="ono" style="bottom: 50%;">Order no :</label>
+                <input type="text" [(ngModel)]="OrderNo" id="ono" name="Order no" placeholder="XXXX" style="bottom: 48%;" >
+                <label for="sd" style="font-size: 20px;" style="bottom: 38%;">Supply date :</label>
+                <input type="text" [(ngModel)]="SupplyDate" id="sd" name="Supply date" placeholder="00/00/0000" style="bottom: 36%;">
+                <label for="st" style="bottom: 26%;">Supply time:</label>
+                <input type="text" [(ngModel)]="SupplyTime" id="st" name="lastname" placeholder="00.00 pm/am" style="bottom: 24%;">
+                <label for="srn" style="bottom: 14%;" >supply ref no:</label>
+                <input type="text" [(ngModel)]="SuplierRefNo" id="srn" name="lastname" placeholder="XXXX" style="bottom: 12%;">
           
             </form>
 
@@ -27,20 +31,20 @@
         <div class="customerbox"> <!-- | customer details |  -->
             <h2 style="text-align: center;"><b><u>Customer Details</u></b></h2>
 
-            <label for="ino" style="font-size: 20px;">Search Customer :</label>
-            <input type="text" [(ngModel)]="SearchCustomer" id="ino" name="name" placeholder="placeholder" >
-              <button style="font-size: 20px; background-color: rgb(3, 124, 3); border-radius: 15px; color: white; padding: 5px;" >Submit</button>
-              <hr style="width:98%;text-align:left;margin-left:3px">
+            <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search <br> Customer :</label>
+            <input type="text" [(ngModel)]="SearchCustomer" id="ino" name="name" placeholder=" 0XX XXX XXXX" style="font-size:20px;bottom: 68%;right: 25%;height: 48px;">
+              <button style="padding: 5px;bottom: 68%;position: fixed;right:3%;  width:20%;height: 48px;" >Submit</button>
+              <hr style="width:98%;text-align:left;margin-left:3px ;bottom: 60%;position: fixed;">
               <form action="/action_page.php">
                 <!--<input type="text" [(ngModel)]="matName" id="fname" name="firstname" >-->
-                <label for="ino" style="font-size: 20px;">Name :</label>
-                <input type="text" [(ngModel)]="Name" id="ino" name="name" placeholder="placeholder" >
-                <label for="ono">Phone :</label>
-                <input type="text" [(ngModel)]="Phone" id="ono" name="phone" placeholder="placeholder" >
-                <label for="sd" style="font-size: 20px;">Address :</label>
-                <input type="text" [(ngModel)]="Address" id="sd" name="address" placeholder="placeholder" >
-                <label for="st">Email :</label>
-                <input type="text" [(ngModel)]="Email" id="st" name="email" placeholder="placeholder">
+                <label for="ino" style="font-size: 20px; bottom: 48%;">Name :</label>
+                <input type="text" [(ngModel)]="Name" id="ino" name="name" placeholder="Customer name" style="bottom: 45%;" >
+                <label for="ono"style="bottom: 35%;">Phone :</label>
+                <input type="text" [(ngModel)]="Phone" id="ono" name="phone" placeholder="0XX XXX XXXX" style="bottom: 32%;" >
+                <label for="sd" style="font-size: 20px;" style="bottom: 22%;">Address :</label>
+                <input type="text" [(ngModel)]="Address" id="sd" name="address" placeholder="Customer Address" style="bottom: 19%;">
+                <label for="st"style="bottom: 9%;">Email :</label>
+                <input type="text" [(ngModel)]="Email" id="st" name="email" placeholder="Customer Email" style="bottom: 6%;">
           
             </form>
 
@@ -51,29 +55,49 @@
 
             <div style="width: 50%;height:25%;position: absolute;bottom: 0%;right: 50%;">
                
-                <label for="st" >Supply time:</label>
-                <input type="text" [(ngModel)]="SupplyTime" id="st" name="lastname" placeholder="placeholder" style="margin-left:5%;width:35%">
-                <label for="st" >Supply time:</label>
-                <input type="text" [(ngModel)]="SupplyTime" id="st" name="lastname" placeholder="placeholder" style="margin-left:5%;width:35%">
-                <label for="st" >Supply time:</label>
-                <input type="text" [(ngModel)]="SupplyTime" id="st" name="lastname" placeholder="placeholder" style="margin-left:5%;width:35%">
+                <label for="st" style="bottom: 24%; left:5%;" >Discount :</label>
+                <input type="text" [(ngModel)]="PreparedBy" id="st" name="lastname" placeholder="00%" style="margin-left:5%;width:35%;bottom: 22%;left:15%;width: 30%;">
+                <label for="st" style="bottom: 15.5%; left:5%;">Prepared By :</label>
+                <input type="text" [(ngModel)]="ApprovedBy" id="st" name="lastname" placeholder="" style="margin-left:5%;width:35%;bottom: 14%;left:15%;width: 30%;">
+                <label for="st" style="bottom: 7%; left:5%;">Approved By :</label>
+                <input type="text" [(ngModel)]="Discount" id="st" name="lastname" placeholder="" style="margin-left:5%;width:35%;bottom: 6%;left:15%;width: 30%;">
               
             </div>
             <div style="width: 50%; height:25%;position: absolute;bottom: 0%;right: 0%;">
                
-                <p style="margin-top:5px;">Sub Total : {{SubTotal}}</p>
-                <p style="margin-top:5px;">Disconut : {{Discount}}</p>
-                <p style="margin-top:5px;">Total : {{Total}}</p>
+                <p style="margin-top:5px; position: fixed; top:73%;">Sub Total : Rs. {{SubTotal}}</p>
+                <p style="margin-top:5px; position: fixed; top: 80.5%;">Disconut : Rs. {{DiscontShow}}</p>
+                <p style="margin-top:5px; position:fixed; top: 87%;"><b>Total : Rs. {{Total}}</b></p>
                 
               
             </div>
 
         </div>
 
-        <button style="position: absolute;bottom: 10%;right: 50%;"><a routerLink="/Add-Order">Print to Document</a></button> 
-        <button style="position: absolute;bottom: 10%;right: 40%;"><a routerLink="/Add-Order">View Customer</a></button> 
-        <button style="position: absolute;bottom: 10%;right: 30%;">Accept Order</button>
-        <button style="position: absolute;bottom: 10%;right: 20%;"><a routerLink="/Add-Order">Cancel Order</a></button>
+        <div class="imagebtns"> <!-- | print btn |  -->
+            <a href="#" style="position: absolute;bottom: 6.5%;right: 44.5%;" >
+            <img src="/assets/print btn.png" alt="d"style="height: 90px;">
+            </a>
+        </div>
+        <div class="imagebtns"> <!-- | view customers btn |  -->
+            <a href="#" style="position: absolute;bottom: 6.5%;right: 29%;">
+            <img src="/assets/veiwcusbtn.png" alt="d" style="height: 90px;">
+            </a>
+        </div>
+        <div class="imagebtns"> <!-- | accept order btn |  -->
+            <a href="#" style="position: absolute;bottom: 6.5%;right: 15%;">
+            <img src="/assets/acceptobtn.png" alt="d" style="height: 90px;">
+            </a>
+        </div>
+        <div class="imagebtns"> <!-- | cancel order btn |  -->
+            <a href="#" style="position: absolute; bottom: 6.5%;right: 1%;">
+            <img src="/assets/cancelobtn.png" alt="d" style="height: 90px;">
+            </a>
+        </div>
+
+        <div class="footer"> <!-- | footer box |  -->
+                <p style="position: relative; font-size: 15px;left:30%;top:22%;"><b>All Rights Reserved NaTree 2021</b></p>
+        </div>
         
     </div>    
 </div>

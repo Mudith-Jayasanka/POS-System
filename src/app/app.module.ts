@@ -20,6 +20,10 @@ import { AddOrderPageComponent } from './pages/add-order-page/add-order-page.com
 import { AddOrderTableComponent } from './tables/add-order-table/add-order-table.component';
 import { AddCustomersComponent } from './pages/add-customers/add-customers.component';
 
+import { AngularFireModule } from '@angular/fire'
+import { AngularFireDatabaseModule } from "@angular/fire/database"
+import { environment } from "../environments/environment"
+
 
 registerLocaleData(hi);
 
@@ -41,7 +45,9 @@ registerLocaleData(hi);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

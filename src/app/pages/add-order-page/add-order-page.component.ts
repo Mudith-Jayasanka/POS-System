@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AddOrderService } from 'src/app/services/add-order.service';
+
 
 @Component({
   selector: 'app-add-order-page',
@@ -27,7 +29,7 @@ export class AddOrderPageComponent implements OnInit {
 
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
-  constructor() { }
+  constructor(private addOrderService : AddOrderService) { }
 
   ngOnInit(): void {
     const children: Array<{ label: string; value: string }> = [];
@@ -35,6 +37,15 @@ export class AddOrderPageComponent implements OnInit {
       children.push({ label: i.toString(36) + i, value: i.toString(36) + i });
     }
     this.listOfOption = children;
+  }
+
+  addOrder(){
+    let data = {
+      "name" : "Mark",
+      "age" : 21,
+      "phone" : "0773353163"
+    }
+    this.addOrderService.addSomething("MarkiMoo" , data)
   }
 
 }

@@ -1,7 +1,7 @@
 [class*="col-"] {
 	float:left;
     padding: 0;
-border: 1px solid red; /*remove this line after */
+/*border: 1px solid red; /*remove this line after */
 
 }
 .col-1 {width: 8.33%;}
@@ -20,9 +20,17 @@ border: 1px solid red; /*remove this line after */
 .topbox{
     position: fixed;
     width:100%;
-    height:12%;
+    height:11%;
     background-color: #0C9A2B;
     
+ }
+ .footer{
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  height:4.5%;
+  width: 100%;
+    background-color: #dddbdb;
  }
  .hero-image {
     background-image: url("/assets/bi11.png");
@@ -38,57 +46,58 @@ border: 1px solid red; /*remove this line after */
     width: 37%;
     height: 40%;
     left: 2%;
-    top: 14%;
-    border: 1px solid red;
+    top: 12%;
+    /*border: 1px solid red;*/
     background-color: white;
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(4px 3px 3px rgba(0, 0, 0, 0.25));
 
   }
 
   .customerbox{
     position: absolute;
     width: 37%;
-    height: 40%;
+    height: 41%;
     left: 2%;
-    top: 55%;
-    border: 1px solid red;
+    top: 53%;
+    /*border: 1px solid red;*/
     background-color: white;
-    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));  
+    filter: drop-shadow(4px 3px 3px rgba(0, 0, 0, 0.25));  
   }
 
   .billbox{
     position: absolute;
     width: 57%;
-    height: 70%;
+    height: 68%;
     left: 40.5%;
-    top: 14%;
-    border: 1px solid red;
+    top: 12%;
+    /*border: 1px solid red;*/
     background-color: white;
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));    
   }
 
-  div{
-    border: 1px solid red;
-     
-     
-  }
 
   label{
+    position: fixed;
+    left:10%;
     font-size: 20px;
-    margin-left:10%;
+    
   }
 
   input{
+    position: fixed;
+    right: 10%;
     width: 50%;  
     font-size: 20px;
     margin-left:10%;
     margin-bottom: 0.5%;
     padding-left: 15px;
-    background-color: #dbdbdb;
+    background-color: #EBEBEB;
     border: none;
     border-radius: 15px;
-    cursor: pointer;
+    cursor: text;
   }
+
+  
 
   p{
     font-size: 20px;
@@ -100,9 +109,30 @@ border: 1px solid red; /*remove this line after */
     font-size: 18px;
     margin-left:1%;
     margin-bottom: 0.5%;
-    padding-left: 15px;
-    
+    padding-left: 15px; 
     border: none;
-    
+      
+  }
+
+  button {
+
+    border:none;
+    font-size: 18px; 
+    background-color: #0C9A2B;
+     border-radius: 15px; 
+     color: white; 
+     padding: 5px;
     
   }
+
+  button:hover{
+    border:none;
+    font-size: 18px; 
+    background-color: #3fda2d;
+    border-radius: 15px; 
+    color: white; 
+    padding: 5px;
+     
+  }
+
+  

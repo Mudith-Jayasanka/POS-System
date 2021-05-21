@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 interface ItemData {
-  id: string;
-  name: string;
-  age: string;
-  address: string;
+  ProductCode: string;
+  Menu: string;
+  Rate: Number;
+  Qty:number;
+  Price: string;
 }
 
 @Component({
@@ -29,17 +30,18 @@ export class AddOrderTableComponent implements OnInit {
     this.listOfData = [
       ...this.listOfData,
       {
-        id: `${this.i}`,
-        name: `${this.SelectedProductCode}`,
-        age: '32',
-        address: `${this.SelectedQty}`
+        ProductCode: `${this.SelectedProductCode}`,
+        Menu: `buriyani`,
+        Rate: 320,
+        Qty: 10,
+        Price: `${this.SelectedQty}`
       }
     ];
     this.i++;
   }
 
   deleteRow(id: string): void {
-    this.listOfData = this.listOfData.filter(d => d.id !== id);
+    this.listOfData = this.listOfData.filter(d => d.ProductCode !== id);
   }
 
   ngOnInit(): void {

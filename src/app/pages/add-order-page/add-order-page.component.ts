@@ -32,6 +32,9 @@ export class AddOrderPageComponent implements OnInit {
   constructor(private addOrderService : AddOrderService) { }
 
   ngOnInit(): void {
+    this.SubTotal='0000.00';
+    this.DiscontShow='0000.00';
+    this.Total='0000.00';
     const children: Array<{ label: string; value: string }> = [];
     for (let i = 10; i < 36; i++) {
       children.push({ label: i.toString(36) + i, value: i.toString(36) + i });

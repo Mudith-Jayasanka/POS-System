@@ -1,31 +1,34 @@
 
-<div style="padding-top:10px;">
-    <label for="ino" style="font-size: 20px;">Search Customer :</label>
-      <input class="inputup" type="text" [(ngModel)]="SelectedProductCode" id="ino" name="name" placeholder="Product Code" >
-      <input class="inputup" type="text" [(ngModel)]="SelectedQty" id="ino" name="name" placeholder="Qty" >
-      <button nz-button (click)="addRow()" nzType="primary">Add</button>
+<div>
+    <label for="ino" style="font-size: 20px;position: fixed;top:3%;left:0%">Add Product :</label>
+      <input class="inputup" type="text" [(ngModel)]="SelectedProductCode" id="ino" name="name" placeholder="Product Code" style="font-size: 20px;position: fixed;top:3%;left:23%" >
+      <input class="inputup" type="text" [(ngModel)]="SelectedQty" id="ino" name="name" placeholder="Qty" style="font-size: 20px;position: fixed;top:3%;left:50%">
+      <!--<button nz-button (click)="addRow()" nzType="primary" style="position: fixed;top:5%;left:25%" >Add</button>-->
+      <button (click)="addRow()" style="position: fixed;top:2.5%;right:6%; width: 12%;" >Add</button>
       <br />
       <br />
 </div>
 
-<div class="col-10" style="height: 60%; overflow-y: scroll;overflow-x: hidden; width:100%">
+<div class="col-10" style="height: 60%; overflow-y: scroll;overflow-x: hidden; width:95%; margin-left: 3%;">
     <br />
     <nz-table #editRowTable nzBordered [nzData]="listOfData" >
       <thead>
         <tr>
-          <th nzWidth="30%">Name</th>
-          <th>Age</th>
-          <th>Address</th>
-          <th>Action</th>
+          <th nzWidth="30%">Product Code</th>
+          <th>Description/Menu</th>
+          <th>Rate</th>
+          <th>Qty</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of editRowTable.data" class="editable-row">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+          <td>{{ data.ProductCode }}</td>
+          <td>{{ data.Menu }}</td>
+          <td>{{ data.Rate}}</td>
+          <td>{{ data.Qty}}</td>
           <td>
-            <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)">Delete</a>
+            <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.ProductCode)">Delete</a>
           </td>
         </tr>
       </tbody>

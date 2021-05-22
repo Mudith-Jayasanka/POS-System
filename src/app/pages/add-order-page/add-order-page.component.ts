@@ -43,6 +43,7 @@ export class AddOrderPageComponent implements OnInit {
   }
 
   addOrder(){
+    console.log("clicked")
     let data = {
       "name" : "Mark",
       "age" : 21,

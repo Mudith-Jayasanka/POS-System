@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductOrder } from 'src/app/Interfaces/product-order';
+import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpage.service';
+
 
 
 
@@ -15,7 +17,8 @@ export class AddOrderTableComponent implements OnInit {
 
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
-  constructor() { }
+
+  constructor(private shared : SharedAddOrederpageService) { }
 
   listOfData: ProductOrder[] = [];
 
@@ -43,6 +46,22 @@ export class AddOrderTableComponent implements OnInit {
       children.push({ label: i.toString(36) + i, value: i.toString(36) + i });
     }
     this.listOfOption = children;
+
+    this.sendData();
+
+  }
+
+  sendData(){
+    setTimeout(()=>{
+      this.shared.setAddOrderTableData(this.listOfData);
+      this.sendData()
+      console.log('sended data')
+    },500)
+    
+  }
+
+  ngOnDestroy(){
+    console.log('closed order data page ')
   }
 
 }

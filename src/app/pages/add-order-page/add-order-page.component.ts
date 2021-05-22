@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductOrder } from 'src/app/Interfaces/product-order';
 import { AddOrderService } from 'src/app/services/add-order.service';
+import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpage.service';
 
 
 @Component({
@@ -29,7 +31,10 @@ export class AddOrderPageComponent implements OnInit {
 
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
-  constructor(private addOrderService : AddOrderService) { }
+
+  constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService) { }
+
+  listOfData: ProductOrder[] = [];
 
   ngOnInit(): void {
     this.SubTotal='0000.00';
@@ -51,5 +56,11 @@ export class AddOrderPageComponent implements OnInit {
     }
     this.addOrderService.addSomething("MarkiMoo" , data)
   }
+
+  getdata(){
+    this.listOfData = this.shared.getAddOrderTableData();
+    console.log(this.listOfData)
+  }
+
 
 }

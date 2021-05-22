@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderData } from 'src/app/Interfaces/order-data';
 
-interface ItemData {
-  ProductCode: string;
-  Menu: string;
-  Rate: Number;
-  Qty:number;
-  Price: string;
-}
+
 
 @Component({
   selector: 'app-add-order-table',
@@ -23,7 +18,7 @@ export class AddOrderTableComponent implements OnInit {
   constructor() { }
 
   i = 0;
-  listOfData: ItemData[] = [];
+  listOfData: OrderData[] = [];
 
 
   addRow(): void {

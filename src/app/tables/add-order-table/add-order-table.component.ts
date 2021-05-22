@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderData } from 'src/app/Interfaces/order-data';
+import { ProductOrder } from 'src/app/Interfaces/product-order';
 
 
 
@@ -17,9 +17,7 @@ export class AddOrderTableComponent implements OnInit {
   listOfTagOptions = [];
   constructor() { }
 
-  i = 0;
-  listOfData: OrderData[] = [];
-
+  listOfData: ProductOrder[] = [];
 
   addRow(): void {
     this.listOfData = [
@@ -29,10 +27,9 @@ export class AddOrderTableComponent implements OnInit {
         Menu: `buriyani`,
         Rate: 320,
         Qty: 10,
-        Price: `${this.SelectedQty}`
+        Price: this.SelectedQty
       }
     ];
-    this.i++;
   }
 
   deleteRow(id: string): void {

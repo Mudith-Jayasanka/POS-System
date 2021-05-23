@@ -1,0 +1,53 @@
+.topbox{
+    position: fixed;
+    width:100%;
+    height:11%;
+    background-color: #0C9A2B;
+    
+ }
+ .footer{
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  height:4.5%;
+  width: 100%;
+    background-color: #dddbdb;
+ }
+ .hero-image {
+    background-image: url("/assets/bi11.png");
+    height: 90vh; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    align-items: baseline;
+    
+  }
+  .row1{
+    position: relative;
+    left: 23%;
+    top: 140px;
+    padding: 0 30px;
+    float: left;
+    left: 270px;
+    
+  }
+
+  div.row1 img{
+      position: relative;
+      width: 120px;
+      height: 70px;
+  }
+
+  .row2{
+    position:relative ;
+    top: 200px;
+    padding: 0 5px;
+    float: left;
+    left:-75px; 
+    
+  }
+
+  div.row2 img{
+    position: relative;
+      width: 187px;
+      height: 195px;
+  }

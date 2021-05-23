@@ -1,0 +1,70 @@
+<div style="position: fixed;min-width: 1530px;min-height: 650px;">
+    <div class="topbox"> <!-- | green box |  -->
+        
+            <img style="position: fixed; right:45%; top: 10px; height: 67px;" src="/assets/nalogow.png" alt="Logo Na tree">
+
+    </div>
+    <div class="hero-image"><!-- | background image |  -->
+        <a href="#" style="position: absolute;top: 13%;left:2% " > 
+            <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
+            
+        <img style="position: relative;left: 37%;top: 12%; height: 67px;" src="/assets/orderhistory.png" alt="add order text">
+        
+        
+
+        <div class="billbox"> <!-- | product details & table |  -->
+            <div style="padding: 20px;">
+
+                <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+                    <thead>
+                      <tr>
+                        <th>Order No</th>
+                        <th>Invoice No</th>
+                        <th nzCustomFilter>
+                            Customer Name
+                          <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                            <i nz-icon nzType="search"></i>
+                          </nz-filter-trigger>
+                        </th>
+                        <th>ApprovedBy</th>
+                        <th>PreparedBy</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of nzTable.data">
+                        <td>{{ data.OrderNo }}</td>
+                        <td>{{ data.InvoiceNo }}</td>
+                        <td>{{ data.CustomerName }}</td>
+                        <td>{{ data.ApprovedBy }}</td>
+                        <td>{{ data.PreparedBy }}</td>
+                        <td>Rs.{{ data.Total }}</td>
+                        <td>{{ data.Date }}</td>
+                      </tr>
+                    </tbody>
+                  </nz-table>
+                  <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <div class="ant-table-filter-dropdown">
+                      <div class="search-box">
+                        <input type="text" nz-input placeholder="Search customer by name" [(ngModel)]="searchValue" />
+                        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+                          Search
+                        </button>
+                        <button nz-button nzSize="small" (click)="reset()">Reset</button>
+                      </div>
+                    </div>
+                  </nz-dropdown-menu>
+               
+               
+            </div>
+            
+
+        </div>
+
+        <div class="footer"> <!-- | footer box |  -->
+                <p style="position: relative; font-size: 15px;left:43%;top:22%;"><b>All Rights Reserved NaTree 2021</b></p>
+        </div>
+        
+    </div>    
+</div>

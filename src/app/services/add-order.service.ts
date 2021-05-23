@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Order } from '../Interfaces/order';
 import { Product } from '../Interfaces/product';
 
 @Injectable({
@@ -10,8 +11,8 @@ export class AddOrderService {
   constructor(private angfire : AngularFirestore) { }
 
 
-  addSomething(docName : any,data : any){
-    return this.angfire.collection("RandomCollection").doc(docName).set(data);
+  addOrder(Order : Order){
+    return this.angfire.collection("Orders").doc(Order.orderDetails.orderNo.toString()).set(Order);
   }
 
   addProduct(product : Product){

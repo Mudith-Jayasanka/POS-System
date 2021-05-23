@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerDetails } from 'src/app/Interfaces/customer-details';
+import { Order } from 'src/app/Interfaces/order';
+import { OrderDetails } from 'src/app/Interfaces/order-details';
+import { OtherOrderInfo } from 'src/app/Interfaces/other-order-info';
 import { Product } from 'src/app/Interfaces/product';
 import { ProductOrder } from 'src/app/Interfaces/product-order';
 import { AddOrderService } from 'src/app/services/add-order.service';
@@ -13,11 +17,11 @@ import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpa
 export class AddOrderPageComponent implements OnInit {
 
   CurrentDate :string;
-  OrderNo : string;
-  InvoiceNo :string;
+  OrderNo : Number;
+  InvoiceNo :Number;
   SupplyDate :string;
   SupplyTime:string;
-  SuplierRefNo :string;
+  SuplierRefNo :Number;
   SearchCustomer:string;
   Name:string;
   Phone:string;
@@ -35,9 +39,10 @@ export class AddOrderPageComponent implements OnInit {
 
   constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService) { }
 
-  listOfData: ProductOrder[] = [];
+  orderList: ProductOrder[] = [];
 
   ngOnInit(): void {
+    this.setCurrentDate()
     this.SubTotal='0000.00';
     this.DiscontShow='0000.00';
     this.Total='0000.00';
@@ -48,19 +53,60 @@ export class AddOrderPageComponent implements OnInit {
     this.listOfOption = children;
   }
 
+  setCurrentDate(){
+    let date = new Date()
+    let month =  date.getMonth() + 1 ;
+    let today = date.getDate() + "/" + month + "/" + date.getFullYear()
+    this.CurrentDate = today;
+  }
+
   addOrder(){
-    console.log("clicked")
-    let data = {
-      "name" : "Mark",
-      "age" : 21,
-      "phone" : "0773353163"
+    console.log("Adding order")
+    this.orderList = this.shared.getAddOrderTableData();
+    
+    let fullOrder = this.getOrderObj()
+
+    this.addOrderService.addOrder(fullOrder)
+  }
+
+  getOrderObj(){
+    let customerDetails : CustomerDetails;
+    customerDetails = {
+      "address" : this.Address,
+      "customerName" : this.Name,
+      "email" : this.Email,
+      "phone" : this.Phone
     }
-    this.addOrderService.addSomething("MarkiMoo" , data)
+
+    let orderDetails : OrderDetails;
+    orderDetails = {
+      "invoiceNo" : this.InvoiceNo,
+      "orderDate" : this.CurrentDate,
+      "supplyDate" : this.SupplyDate,
+      "orderNo" : this.OrderNo,
+      "supplyRefNo" : this.SuplierRefNo
+    }
+
+    let otherInfo : OtherOrderInfo;
+    otherInfo = {
+      "discount" : this.Discount,
+      "approvedBy" : this.ApprovedBy,
+      "preparedBy" : this.PreparedBy
+    }
+
+
+    let order : Order;
+    order = {
+      "customerDetails" : customerDetails,
+      "orderDetails" : orderDetails,
+      "productOrders" : this.orderList,
+      "otherInfo" : otherInfo
+    }
+    return order
   }
 
   getdata(){
-    this.listOfData = this.shared.getAddOrderTableData();
-    console.log(this.listOfData)
+
 
     let productData : Product;
     productData = {

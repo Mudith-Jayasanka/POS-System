@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/Interfaces/product';
 import { ProductOrder } from 'src/app/Interfaces/product-order';
 import { AddOrderService } from 'src/app/services/add-order.service';
 import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpage.service';
@@ -60,6 +61,17 @@ export class AddOrderPageComponent implements OnInit {
   getdata(){
     this.listOfData = this.shared.getAddOrderTableData();
     console.log(this.listOfData)
+
+    let productData : Product;
+    productData = {
+      "code" : "BR-R-C2",
+      "foodType" : "C",
+      "menu" : ["Chicken Biriyani" , "Roast Chicken" , "Cashew Curry" , "B&F Eggs" , "M/ Fish Sambol" , "Koroma Curry"],
+      "packsAmt" : 2,
+      "price" : 2000
+    }
+    this.addOrderService.addProduct(productData);
+
   }
 
 

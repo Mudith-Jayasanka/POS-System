@@ -51,17 +51,17 @@ export class AddOrderTableComponent implements OnInit {
 
   }
 
+  pageExit : boolean = false;
   sendData(){
+    if (this.pageExit){return}
     setTimeout(()=>{
       this.shared.setAddOrderTableData(this.listOfData);
-      this.sendData()
-      console.log('sended data')
-    },500)
-    
+      this.sendData();
+    },250)
   }
 
   ngOnDestroy(){
-    console.log('closed order data page ')
+    this.pageExit = true;
   }
 
 }

@@ -23,7 +23,8 @@ import { AddCustomersComponent } from './pages/add-customers/add-customers.compo
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireDatabaseModule } from "@angular/fire/database"
 import { environment } from "../environments/environment";
-import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component'
+import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component';
+import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component'
 
 
 registerLocaleData(hi);
@@ -36,7 +37,8 @@ registerLocaleData(hi);
     AddOrderPageComponent,
     AddOrderTableComponent,
     AddCustomersComponent,
-    OrderHistoryPageComponent
+    OrderHistoryPageComponent,
+    AddProductPageComponent
   ],
   imports: [
     BrowserModule,

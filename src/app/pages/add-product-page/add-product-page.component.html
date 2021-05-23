@@ -1,0 +1,59 @@
+<div style="position: fixed;min-width: 1530px;min-height: 650px;">
+    <div class="topbox"> <!-- | green box |  -->
+        
+            <img style="position: fixed; right:45%; top: 10px; height: 67px;" src="/assets/nalogow.png" alt="Logo Na tree">
+
+    </div>
+    <div class="hero-image"><!-- | background image |  -->
+        <a href="#" style="position: absolute;top: 13%;left:2% " > 
+            <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
+            
+        <img style="position: relative;left: 37%;top: 12%; height: 67px;" src="/assets/orderhistory.png" alt="add order text">
+        
+        
+
+        <div class="tablebox"> 
+
+            <div class="tablebox2"><!-- | product details & table |  -->
+                <h2 style="text-align: left;"><b>Enter Basic Info</b></h2>
+
+                <label for="ino" style="font-size: 20px; bottom: 76.5%;">Product Name :</label>
+                <input type="text" [(ngModel)]="ProductName" id="ino" name="name" placeholder="Customer name" style="bottom: 75%;" >
+                
+                <label for="ono"style="bottom: 67.5%;">Menu Code :</label>
+                <input type="text" [(ngModel)]="MenuCode" id="ono" name="phone" placeholder="0XX XXX XXXX" style="bottom: 66%;" >
+                
+                <label for="sd" style="font-size: 20px;" style="bottom: 58.5%;">Meat type :</label>
+                <input type="text" [(ngModel)]="Meattype" id="sd" name="address" placeholder="Customer Address" style="bottom: 57%;">
+                
+                <label for="sd" style="font-size: 20px;" style="bottom: 49.5%;">Meat Code :</label>
+                <input type="text" [(ngModel)]="MeatCode" id="sd" name="address" placeholder="Customer Address" style="bottom: 48%;">
+                
+                <label for="st"style="bottom: 40.5%;">Additional Info :</label>
+                <textarea id="w3review" [(ngModel)]="AdditionalInfo" placeholder="Customer Email" name="w3review" rows="4" cols="50" style="bottom: 25%;height: 20%;"></textarea>
+               
+                
+                  
+            </div>
+            <div class="tablebox1"><!-- | product details & table |  -->
+                    <select ng-model = "cars" id="cars">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="opel">Opel</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                    <br><br>
+                    
+                  
+
+                  <button (click)="type()">type</button>
+            </div>
+ 
+        </div>
+
+        <div class="footer"> <!-- | footer box |  -->
+                <p style="position: relative; font-size: 15px;left:43%;top:22%;"><b>All Rights Reserved NaTree 2021</b></p>
+        </div>
+        
+    </div>    
+</div>

@@ -15,9 +15,6 @@ export class AddOrderTableComponent implements OnInit {
   SelectedProductCode :string;
   SelectedQty :number;
 
-  listOfOption: Array<{ label: string; value: string }> = [];
-  listOfTagOptions = [];
-
   constructor(private shared : SharedAddOrederpageService) { }
 
   listOfData: ProductOrder[] = [];
@@ -39,14 +36,7 @@ export class AddOrderTableComponent implements OnInit {
     this.listOfData = this.listOfData.filter(d => d.ProductCode !== id);
   }
 
-  ngOnInit(): void {
-    
-    const children: Array<{ label: string; value: string }> = [];
-    for (let i = 10; i < 36; i++) {
-      children.push({ label: i.toString(36) + i, value: i.toString(36) + i });
-    }
-    this.listOfOption = children;
-
+  ngOnInit(): void { 
     this.sendData();
 
   }

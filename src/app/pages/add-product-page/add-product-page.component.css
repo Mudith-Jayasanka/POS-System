@@ -61,9 +61,19 @@
     height: 100%;
     right: 0%;
     top: 0%;
-    border: 1px solid rgb(0, 255, 64);
+    /*border: 1px solid rgb(0, 255, 64);*/
     background-color: white;
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));    
+  }
+  .tablebox3{
+    position: absolute;
+    padding: 5%;
+    width: 100%;
+    height: 75%;
+    right: 0%;
+    top: 0%;
+    /*border: 1px solid rgb(55, 0, 255);*/
+    
   }
   .tablebox2{
     position: absolute;
@@ -72,10 +82,12 @@
     height: 100%;
     left: 0%;
     top: 0%;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     background-color: white;
     filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));    
   }
+
+ 
 
   label{
     position: fixed;
@@ -144,4 +156,25 @@
   p{
     font-size: 20px;
     margin-left:10%;   
+  }
+
+
+  button {
+
+    border:none;
+    font-size: 18px; 
+    background-color: #037c03;
+     border-radius: 15px; 
+     color: white; 
+     padding: 5px;
+  }
+
+  button:hover{
+    border:none;
+    font-size: 18px; 
+    background-color: #32aa24;
+     border-radius: 15px; 
+     color: white; 
+     padding: 5px;
+     
   }

@@ -17,11 +17,11 @@ import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpa
 export class AddOrderPageComponent implements OnInit {
 
   CurrentDate :string;
-  OrderNo : Number;
-  InvoiceNo :Number;
+  OrderNo : string;
+  InvoiceNo :string;
   SupplyDate :string;
   SupplyTime:string;
-  SuplierRefNo :Number;
+  SuplierRefNo :string;
   SearchCustomer:string;
   Name:string;
   Phone:string;
@@ -61,13 +61,68 @@ export class AddOrderPageComponent implements OnInit {
   }
 
   addOrder(){
-    console.log("Adding order")
+    console.log("Adding order");
     this.orderList = this.shared.getAddOrderTableData();
     
-    let fullOrder = this.getOrderObj()
+    this.validateAll();
+    
+    // let fullOrder = this.getOrderObj()
 
-    this.addOrderService.addOrder(fullOrder)
+    // this.addOrderService.addOrder(fullOrder)
   }
+
+  validateAll(){
+    //Validating Order Details
+    this.InvoiceNo = this.validateInt(this.InvoiceNo);
+    this.OrderNo = this.validateInt(this.OrderNo);
+    this.SuplierRefNo = this.validateInt(this.SuplierRefNo);
+    if(!this.isValidDate(this.SupplyDate)){this.SupplyDate = this.SupplyDate + "<- Invalid Date";}
+    this.SupplyTime = this.validateTime(this.SupplyTime);
+
+  }
+
+  validateTime(time : string){
+    let split_time = time.split(" ")
+    if(split_time.length != 2){return time + "<- Invalid Time"}
+
+    if (split_time[0].match('^(0?[1-9]|1[012]):[0-5][0-9]$') ===  undefined){ return time + "<- Invalid 12h Time" }
+    if(!(split_time[1].toLowerCase() == "am") || !(split_time[1].toLowerCase() == "pm")){return time + "<- Invalid am/pm"}
+    if(split_time[1].toLowerCase() == "am"){return split_time[0] + " AM"}
+    if(split_time[1].toLowerCase() == "pm"){return split_time[0] + " PM"}
+  }
+
+  validateInt(num : any){
+    if(isNaN(num)){return num + "<- INVALID"}
+    return num;
+  }
+
+  isValidDate(dateString)
+  {
+      // First check for the pattern
+      if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
+          return false;
+
+      // Parse the date parts to integers
+      var parts = dateString.split("/");
+      var day = parseInt(parts[1], 10);
+      var month = parseInt(parts[0], 10);
+      var year = parseInt(parts[2], 10);
+
+      // Check the ranges of month and year
+      if(year < 1000 || year > 3000 || month == 0 || month > 12)
+          return false;
+
+      var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+
+      // Adjust for leap years
+      if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+          monthLength[1] = 29;
+
+      // Check the range of the day
+      return day > 0 && day <= monthLength[month - 1];
+  };
+
+
 
   getOrderObj(){
     let customerDetails : CustomerDetails;
@@ -80,11 +135,11 @@ export class AddOrderPageComponent implements OnInit {
 
     let orderDetails : OrderDetails;
     orderDetails = {
-      "invoiceNo" : this.InvoiceNo,
+      "invoiceNo" : Number.parseInt(this.InvoiceNo),
       "orderDate" : this.CurrentDate,
       "supplyDate" : this.SupplyDate,
-      "orderNo" : this.OrderNo,
-      "supplyRefNo" : this.SuplierRefNo
+      "orderNo" : Number.parseInt(this.OrderNo),
+      "supplyRefNo" : Number.parseInt(this.SuplierRefNo)
     }
 
     let otherInfo : OtherOrderInfo;

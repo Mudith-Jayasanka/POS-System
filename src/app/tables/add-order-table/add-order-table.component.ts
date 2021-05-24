@@ -29,8 +29,8 @@ export class AddOrderTableComponent implements OnInit {
         ProductCode: `${this.SelectedProductCode}`,
         Menu: `buriyani`,
         Rate: 320,
-        Qty: 10,
-        Price: this.SelectedQty
+        Qty: this.SelectedQty,
+        Price: 5 
       }
     ];
   }

@@ -11,7 +11,7 @@
         <div class="orderbox"><!-- | order details |  -->
             <h2 style="text-align: center;"><b><u>Order Details</u></b></h2>
             <p >Order Date : {{CurrentDate}}</p>
-            <form action="/action_page.php">
+            <form action="/action_page.php" autocomplete="off">
                 <!--<input type="text" [(ngModel)]="matName" id="fname" name="firstname" >-->
                 <label for="ino" style="font-size: 20px; bottom: 62%;">Invoice No :</label>
                 <input type="text" [(ngModel)]="InvoiceNo" id="ino" name="Invoice No" placeholder="XXXX" style="bottom: 60%;">
@@ -22,8 +22,8 @@
                 <label for="st" style="bottom: 26%;">Supply time:</label>
                 <input type="text" [(ngModel)]="SupplyTime" id="st" name="SupplyTime" placeholder="00.00" style="bottom: 24%; width:30%;right:30%">
                 <select id="SupplyTime2" name="SupplyTime2" [(ngModel)]="SupplyTime2" class="form-control" style="bottom: 24%; width:19%;right:10%;height:11%;">
-                    <option  value="am" >am</option>
-                    <option  value="pm" >pm</option>
+                    <option  value="AM" >AM</option>
+                    <option  value="PM" >PM</option>
                   </select>
                 <label for="srn" style="bottom: 14%;" >supply ref no:</label>
                 <input type="text" [(ngModel)]="SuplierRefNo" id="srn" name="SupplyRefNo" placeholder="XXXX" style="bottom: 12%;">

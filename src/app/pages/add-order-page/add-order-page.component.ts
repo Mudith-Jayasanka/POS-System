@@ -21,6 +21,7 @@ export class AddOrderPageComponent implements OnInit {
   InvoiceNo :string;
   SupplyDate :string;
   SupplyTime:string;
+  SupplyTime2:string;
   SuplierRefNo :string;
   SearchCustomer:string;
   Name:string;

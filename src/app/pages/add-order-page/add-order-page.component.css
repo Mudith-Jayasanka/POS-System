@@ -97,7 +97,19 @@
     cursor: text;
   }
 
-  
+  select{
+    position: fixed;
+    right: 10%;
+    width: 50%;  
+    font-size: 20px;
+    margin-left:10%;
+    margin-bottom: 0.5%;
+    padding-left: 15px;
+    background-color: #EBEBEB;
+    border: none;
+    border-radius: 15px;
+    cursor: text; 
+  }
 
   p{
     font-size: 20px;

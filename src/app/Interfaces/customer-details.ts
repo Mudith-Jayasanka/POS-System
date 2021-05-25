@@ -4,6 +4,6 @@ export interface CustomerDetails {
     address : String;
     
     email ?: String;
-    altPhone ?: String;
-    altAddress ?: String;
+    // altPhone ?: String;
+    // altAddress ?: String;
 }

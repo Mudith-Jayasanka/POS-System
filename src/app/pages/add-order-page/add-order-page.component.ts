@@ -69,7 +69,8 @@ export class AddOrderPageComponent implements OnInit {
     this.validateAll();
     
     let fullOrder = this.getOrderObj()
-    this.addOrderService.addOrder(fullOrder)
+    // this.addOrderService.addOrder(fullOrder)
+    this.addCustomer(fullOrder.customerDetails)
   }
 
   validateAll(){
@@ -98,8 +99,7 @@ export class AddOrderPageComponent implements OnInit {
     return num;
   }
 
-  isValidDate(dateString)
-  {
+  isValidDate(dateString){
     if(dateString === undefined) return undefined
     // First check for the pattern
     if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
@@ -176,6 +176,30 @@ export class AddOrderPageComponent implements OnInit {
     }
     this.addOrderService.addProduct(productData);
 
+  }
+
+  addCustomer(Customer : CustomerDetails){
+    this.addOrderService.addCustomer().doc(Customer.phone.toString()).get().subscribe((data)=>{
+      if(!data.exists){
+        //Create New Customer
+        this.addOrderService.addCustomer().doc(Customer.phone.toString()).set(Customer)
+      }
+    });
+  }
+
+  searchCustomer(){
+    if(this.SearchCustomer === undefined) return
+    this.addOrderService.addCustomer().doc(this.SearchCustomer.toString()).get().subscribe((data)=>{
+      if(data.exists){
+        let user = data.data()
+        this.Name = user["customerName"]
+        this.Address = user["address"]
+        this.Email = user["email"]
+        this.Phone = user["phone"]
+      }else{
+        console.log(this.SearchCustomer + " Not Found")
+      }
+    });
   }
 
 

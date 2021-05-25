@@ -37,9 +37,11 @@
 
             <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search <br> Customer :</label>
             <input type="text" [(ngModel)]="SearchCustomer" id="ino" name="name" placeholder=" 0XX XXX XXXX" style="font-size:20px;bottom: 67.5%;right: 45%;height: 48px; width:30%">
-            <button style="padding: 5px;bottom: 68%;position: fixed;right:23.5%;  width:20%;height: 48px;" >Search</button>  
+            
+            <button style="padding: 5px;bottom: 68%;position: fixed;right:23.5%;  width:20%;height: 48px;" (click)="searchCustomer()" >Search</button>
             <button style="padding: 5px;bottom: 68%;position: fixed;right:3%;  width:20%;height: 48px;" >Add+</button>
-              <hr style="width:98%;text-align:left;margin-left:3px ;bottom: 60%;position: fixed;">
+              
+            <hr style="width:98%;text-align:left;margin-left:3px ;bottom: 60%;position: fixed;">
               <form action="/action_page.php">
                 <!--<input type="text" [(ngModel)]="matName" id="fname" name="firstname" >-->
                 <label for="ino" style="font-size: 20px; bottom: 48%;">Name :</label>

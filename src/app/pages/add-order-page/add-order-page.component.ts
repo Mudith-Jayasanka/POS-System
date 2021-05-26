@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxPrinterService } from 'ngx-printer';
 import { CustomerDetails } from 'src/app/Interfaces/customer-details';
 import { Order } from 'src/app/Interfaces/order';
 import { OrderDetails } from 'src/app/Interfaces/order-details';
@@ -38,8 +39,8 @@ export class AddOrderPageComponent implements OnInit {
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
 
-  constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService) { }
-
+  constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService ,private printerService: NgxPrinterService) { }
+  isVisible = false;
   orderList: ProductOrder[] = [];
 
   ngOnInit(): void {
@@ -200,6 +201,26 @@ export class AddOrderPageComponent implements OnInit {
         console.log(this.SearchCustomer + " Not Found")
       }
     });
+  }
+
+  //methods for modal
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
+  }
+
+  //method to print
+  print(){
+    this.printerService.printDiv('print-section');
   }
 
 

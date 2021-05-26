@@ -36,10 +36,10 @@
             <h2 style="text-align: center;"><b><u>Customer Details</u></b></h2>
 
             <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search <br> Customer :</label>
-            <input type="text" [(ngModel)]="SearchCustomer" id="ino" name="name" placeholder=" 0XX XXX XXXX" style="font-size:20px;bottom: 67.5%;right: 45%;height: 48px; width:30%">
+            <input type="text" [(ngModel)]="SearchCustomer" id="ino" name="name" placeholder=" 0XX XXX XXXX" style="font-size:20px;bottom: 67.5%;right: 27%;height: 48px; width:47%">
             
-            <button style="padding: 5px;bottom: 68%;position: fixed;right:23.5%;  width:20%;height: 48px;" (click)="searchCustomer()" >Search</button>
-            <button style="padding: 5px;bottom: 68%;position: fixed;right:3%;  width:20%;height: 48px;" >Add+</button>
+            <button style="padding: 5px;bottom: 68%;position: fixed;right:5%;  width:20%;height: 48px;" (click)="searchCustomer()" >Search</button>
+            
               
             <hr style="width:98%;text-align:left;margin-left:3px ;bottom: 60%;position: fixed;">
               <form action="/action_page.php">
@@ -81,7 +81,7 @@
 
         </div>
 
-        <div class="imagebtns"> <!-- | print btn |  -->
+        <div class="imagebtns" (click)="showModal()"> <!-- | print btn |  -->
             <img src="/assets/print btn.png" alt="d"style="height: 90px;position: absolute;bottom: 6.5%;right: 44.5%;">
         </div>
         <div class="imagebtns" (click)="getdata()"> <!-- | view customers btn |  -->
@@ -100,3 +100,43 @@
         
     </div>    
 </div>
+
+<!-- Modal to show printing page -->
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Print the bill" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="800px">
+    <ng-container *nzModalContent>
+        <button (click)="print()" style="text-align: center; position: fixed; left: 45%; width: 10%;" >Print</button> 
+        <div id="print-section" class="card" style="width: 18rem;background-image:image;">
+            <br>
+            <br>
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <table style="width:100%">
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Age</th>
+                </tr>
+                <tr>
+                  <td>Jill</td>
+                  <td>Smith</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>Eve</td>
+                  <td>Jackson</td>
+                  <td>94</td>
+                </tr>
+              </table>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+            </div>
+          </div>
+
+    </ng-container>
+  </nz-modal>

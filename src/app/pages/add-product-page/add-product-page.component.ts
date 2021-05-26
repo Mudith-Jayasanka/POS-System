@@ -51,5 +51,13 @@ export class AddProductPageComponent implements OnInit {
     console.log(this.Meattype);
   }
 
+  addProduct(){
+    this.validate()
+  }
+
+  validate(){
+    
+  }
+
   
 }

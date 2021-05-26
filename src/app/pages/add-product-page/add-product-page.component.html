@@ -19,10 +19,10 @@
         <h2 style="text-align: left;"><b>Enter Basic Info</b></h2>
 
         <label for="ino" style="font-size: 20px; bottom: 76.5%;">Product Name :</label>
-        <input type="text" [(ngModel)]="ProductName" id="ino" name="name" placeholder="Customer name" style="bottom: 75%;" >
+        <input autocomplete="off" type="text" [(ngModel)]="ProductName" id="ino" name="name" placeholder="Product Name" style="bottom: 75%;" >
         
         <label for="ono"style="bottom: 67.5%;">Menu Code :</label>
-        <input type="text" [(ngModel)]="MenuCode" id="ono" name="phone" placeholder="0XX XXX XXXX" style="bottom: 66%;"  >
+        <input autocomplete="off" type="text" [(ngModel)]="MenuCode" id="ono" name="phone" placeholder="eg. XX-X" style="bottom: 66%;"  >
         
         <label for="sd" style="font-size: 20px;" style="bottom: 58.5%;">Meat type :</label>
             <select id="Meattype" name="Meattype" [(ngModel)]="Meattype" class="form-control" style="bottom: 57%;" >
@@ -41,7 +41,7 @@
         <label for="sd" style="font-size: 20px;" style="bottom: 49.5%;">Meat Code :</label>
         <div  class="show" style="bottom: 48%;"><p>{{Meattype}}</p></div>
         <label for="st"style="bottom: 40.5%;">Additional Info :</label>
-        <textarea id="w3review" [(ngModel)]="AdditionalInfo" placeholder="Customer Email" name="w3review" rows="4" cols="50" style="bottom: 25%;height: 20%;"></textarea>
+        <textarea autocomplete="off" id="w3review" [(ngModel)]="AdditionalInfo" placeholder="Additional Info" name="w3review" rows="4" cols="50" style="bottom: 25%;height: 20%;"></textarea>
         
         <div class="imagebtns"> <!-- | accept order btn |  -->
           <img src="/assets/viewpbtn.png" alt="d" style="height: 80px;position: absolute;bottom: 6.5%;right: 51%;">

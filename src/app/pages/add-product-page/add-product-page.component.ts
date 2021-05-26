@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 export interface paxdetails {
   paxno : String;
   paxprice : String;
+  generatedCode:String;
   
 }
 
@@ -25,6 +26,7 @@ export class AddProductPageComponent implements OnInit {
   constructor() { }
 
   listOfData: paxdetails[] = [];
+  
 
   addRow(): void {
     console.log(this.Pax)
@@ -33,7 +35,8 @@ export class AddProductPageComponent implements OnInit {
       ...this.listOfData,
       {
         paxno: this.Pax.toString() ,
-        paxprice: this.PaxPrice.toString()
+        paxprice: this.PaxPrice.toString(),
+        generatedCode:this.GeneratedCode.toString()
       }
     ];
     
@@ -44,7 +47,7 @@ export class AddProductPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
+    this.GeneratedCode='gcode';
   }
 
   type(){

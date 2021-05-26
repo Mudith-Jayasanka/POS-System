@@ -26,6 +26,7 @@ import { environment } from "../environments/environment";
 import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component';
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { SalesSummeryComponent } from './pages/sales-summery/sales-summery.component';
+import { NgxPrinterModule } from 'ngx-printer';
 
 
 registerLocaleData(hi);
@@ -52,6 +53,7 @@ registerLocaleData(hi);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxPrinterModule.forRoot({printOpenWindow: true}),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],

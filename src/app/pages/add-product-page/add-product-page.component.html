@@ -11,7 +11,7 @@
       <a href="#" style="position: absolute;top: 13%;left:2% " > 
         <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
         
-    <img style="position: relative;left: 33%;top: 12%; height: 67px;" src="/assets/addprodtxt.png" alt="add order text">
+    <img style="position: relative;left: 33%;top: 12%; height: 67px;"  src="/assets/addprodtxt.png" alt="add order text">
 
     <div class="tablebox"> 
 
@@ -22,10 +22,10 @@
         <input autocomplete="off" type="text" [(ngModel)]="ProductName" id="ino" name="name" placeholder="Product Name" style="bottom: 75%;" >
         
         <label for="ono"style="bottom: 67.5%;">Menu Code :</label>
-        <input autocomplete="off" type="text" [(ngModel)]="MenuCode" id="ono" name="phone" placeholder="eg. XX-X" style="bottom: 66%;"  >
+        <input autocomplete="off"  type="text" [(ngModel)]="MenuCode" (ngModelChange)="updateOrderListCode()" id="ono" name="phone" placeholder="eg. XX-X" style="bottom: 66%;"  >
         
         <label for="sd" style="font-size: 20px;" style="bottom: 58.5%;">Meat type :</label>
-            <select id="Meattype" name="Meattype" [(ngModel)]="Meattype" class="form-control" style="bottom: 57%;" >
+            <select id="Meattype" name="Meattype" [(ngModel)]="Meattype" (ngModelChange)="updateOrderListCode()" class="form-control" style="bottom: 57%;" >
               <option  value="C" >C-Chicken</option>
               <option  value="F" >F-Fish</option>
               <option  value="V" >V-Vegetarian</option>
@@ -96,7 +96,7 @@
         </div>-->
 
         <div class="imagebtns"> <!-- | accept order btn |  -->
-          <img src="/assets/acceptobtn.png" alt="d" style="height: 80px;position: absolute;bottom: 6.5%;right: 50%;">
+          <img src="/assets/acceptobtn.png" (click)="addProduct()" alt="d" style="height: 80px;position: absolute;bottom: 6.5%;right: 50%;">
         </div>
         <div class="imagebtns"> <!-- | cancel order btn |  -->
             <img src="/assets/cancelobtn.png" alt="d" style="height: 80px;position: absolute; bottom: 6.5%;right: 23%;">

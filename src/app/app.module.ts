@@ -25,7 +25,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/database"
 import { environment } from "../environments/environment";
 import { OrderHistoryPageComponent } from './pages/order-history-page/order-history-page.component';
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
-import { SalesSummeryComponent } from './pages/sales-summery/sales-summery.component'
+import { SalesSummeryComponent } from './pages/sales-summery/sales-summery.component';
 
 
 registerLocaleData(hi);

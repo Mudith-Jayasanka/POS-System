@@ -70,6 +70,7 @@
                   <tr>
                     <th>Pax</th>
                     <th>Pax Price</th>
+                    <th>Generated Code</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -77,6 +78,7 @@
                   <tr *ngFor="let data of editRowTable.data" class="editable-row">
                     <td>{{ data.paxno }}</td>
                     <td>{{ data.paxprice }}</td>
+                    <td>{{ data.generatedCode }}</td>
                     <td>
                       <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.paxno)">Delete</a>
                     </td>
@@ -86,12 +88,12 @@
             </div>
         </div>
 
-        <div class="generatebox" style="border: 3px solid #0C9A2B; position:absolute;bottom:28%; width: 80%; height: 18%; border-radius: 20px;">
+       <!-- <div class="generatebox" style="border: 3px solid #0C9A2B; position:absolute;bottom:28%; width: 80%; height: 18%; border-radius: 20px;">
           <label for="sd" style="font-size: 20px; bottom: 31%; margin-left: 6%; " ><b>Generated </b><br><b>Meat Code</b> </label>
           <label for="ssd" style="font-size: 30px; bottom: 33%; margin-left: 22%; " >= </label>
           <div  class="show" style="bottom: 32%; width:48%;right: 15%;height: 8%;"><p>{{GeneratedCode}}</p></div>
 
-        </div>
+        </div>-->
 
         <div class="imagebtns"> <!-- | accept order btn |  -->
           <img src="/assets/acceptobtn.png" alt="d" style="height: 80px;position: absolute;bottom: 6.5%;right: 50%;">

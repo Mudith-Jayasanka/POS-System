@@ -164,20 +164,20 @@ export class AddOrderPageComponent implements OnInit {
     return order
   }
 
-  getdata(){
+  // getdata(){
 
 
-    let productData : Product;
-    productData = {
-      "code" : "BR-R-C2",
-      "foodType" : "C",
-      "menu" : ["Chicken Biriyani" , "Roast Chicken" , "Cashew Curry" , "B&F Eggs" , "M/ Fish Sambol" , "Koroma Curry"],
-      "packsAmt" : 2,
-      "price" : 2000
-    }
-    this.addOrderService.addProduct(productData);
+  //   let productData : Product;
+  //   productData = {
+  //     "code" : "BR-R-C2",
+  //     "foodType" : "C",
+  //     "menu" : ["Chicken Biriyani" , "Roast Chicken" , "Cashew Curry" , "B&F Eggs" , "M/ Fish Sambol" , "Koroma Curry"],
+  //     "packsAmt" : 2,
+  //     "price" : 2000
+  //   }
+  //   this.addOrderService.addProduct(productData);
 
-  }
+  // }
 
   addCustomer(Customer : CustomerDetails){
     this.addOrderService.addCustomer().doc(Customer.phone.toString()).get().subscribe((data)=>{

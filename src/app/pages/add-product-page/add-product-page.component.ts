@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/Interfaces/product';
+import { AddOrderService } from 'src/app/services/add-order.service';
 
 export interface paxdetails {
-  paxno : String;
-  paxprice : String;
-  generatedCode:String;
+  paxno : string;
+  paxprice : string;
+  generatedCode:string;
   
 }
 
@@ -23,7 +25,7 @@ export class AddProductPageComponent implements OnInit {
   PaxPrice : string; //string array to put pax price amounts 
   GeneratedCode:string;
 
-  constructor() { }
+  constructor(private addProdService : AddOrderService) { }
 
   listOfData: paxdetails[] = [];
   
@@ -93,17 +95,6 @@ export class AddProductPageComponent implements OnInit {
     this.GeneratedCode='gcode';
   }
 
-  type(){
-    console.log(this.Meattype);
-  }
-
-  addProduct(){
-    if(this.validated()){
-      console.log("All Valid")
-    }else{
-      console.log("Validation Failed")
-    }
-  }
 
   validated(){
     //Returns True if validations are successfull
@@ -126,6 +117,44 @@ export class AddProductPageComponent implements OnInit {
     if(this.MenuCode == "") return false
     return true
   }
+
+  getProductObjs(){
+    let productList : Product[] = [];
+    this.listOfData.forEach((row)=>{
+      let product : Product = {
+        prodName : this.ProductName,
+        additionalInfo : this.AdditionalInfo,
+        pax : Number.parseInt(row.paxno),
+        price : Number.parseInt(row.paxprice),
+        menuCode : this.MenuCode,
+        meatCode : this.Meattype,
+        generatedCode : row.generatedCode
+      }
+      productList.push(product);
+    });
+    return productList
+  }
+
+  uploadProducts(prodList : Product[]){
+    if(prodList.length == 0) return
+
+    this.addProdService.addSinglePack().doc(prodList[0].generatedCode).set(prodList[0]).then((res)=>{
+      console.log("Uploaded  : " + prodList[0].generatedCode)
+      prodList.shift()
+      this.uploadProducts(prodList)
+    });
+  }
+
+
+  addProduct(){
+    if(this.validated()){
+      console.log("All Valid")
+      this.uploadProducts(this.getProductObjs());
+    }else{
+      console.log("Validation Failed")
+    }
+  }
+
 
   
 

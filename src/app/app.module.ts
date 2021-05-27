@@ -27,6 +27,10 @@ import { OrderHistoryPageComponent } from './pages/order-history-page/order-hist
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { SalesSummeryComponent } from './pages/sales-summery/sales-summery.component';
 import { NgxPrinterModule } from 'ngx-printer';
+import { CustomerDetailsPageComponent } from './pages/customer-details-page/customer-details-page.component';
+import { ViewProductsComponent } from './pages/view-products/view-products.component';
+import { ViewOffersComponent } from './pages/view-offers/view-offers.component';
+
 
 
 registerLocaleData(hi);
@@ -41,7 +45,11 @@ registerLocaleData(hi);
     AddCustomersComponent,
     OrderHistoryPageComponent,
     AddProductPageComponent,
-    SalesSummeryComponent
+    SalesSummeryComponent,
+    CustomerDetailsPageComponent,
+    ViewProductsComponent,
+    ViewOffersComponent,
+    
   ],
   imports: [
     BrowserModule,

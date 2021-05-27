@@ -30,6 +30,10 @@ import { NgxPrinterModule } from 'ngx-printer';
 import { CustomerDetailsPageComponent } from './pages/customer-details-page/customer-details-page.component';
 import { ViewProductsComponent } from './pages/view-products/view-products.component';
 import { ViewOffersComponent } from './pages/view-offers/view-offers.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+
 
 
 
@@ -49,6 +53,8 @@ registerLocaleData(hi);
     CustomerDetailsPageComponent,
     ViewProductsComponent,
     ViewOffersComponent,
+    LoginComponent,
+    RegisterComponent
     
   ],
   imports: [
@@ -63,7 +69,10 @@ registerLocaleData(hi);
     BrowserAnimationsModule,
     NgxPrinterModule.forRoot({printOpenWindow: true}),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

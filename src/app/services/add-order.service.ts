@@ -20,7 +20,7 @@ export class AddOrderService {
     return this.angfire.collection("Customers")
   }
 
-  addProduct(product : Product){
-    return this.angfire.collection("Products").doc(product.code).set(product);
+  addSinglePack(){
+    return this.angfire.collection("Products")
   }
 }

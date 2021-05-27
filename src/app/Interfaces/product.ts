@@ -1,7 +1,10 @@
 export interface Product {
-    code : string;
-    menu : string[];
-    foodType : string;
-    packsAmt : Number;
-    price : Number;
+    prodName : string;
+    additionalInfo : string;
+    pax : number;
+    price : number;
+
+    menuCode : string;
+    meatCode : string;
+    generatedCode : string;
 }

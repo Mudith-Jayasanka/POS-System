@@ -32,8 +32,9 @@ export class RegisterComponent implements OnInit {
     if (this.validateForm(this.email, this.password)) {
       this.authservice.registerWithEmail(this.email, this.password)
         .then(() => {
+          alert("Register Successful")
           this.message = "you are register with data on firbase"
-          //this.router.navigate(['/userinfo'])
+          this.router.navigate(['/login'])
         }).catch(_error => {
           this.error = _error
           this.router.navigate(['/register'])

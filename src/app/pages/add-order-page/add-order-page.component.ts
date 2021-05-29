@@ -35,7 +35,7 @@ export class AddOrderPageComponent implements OnInit {
   Phone:string;
   Address:string;
   Email:string;
-  Discount:string;
+  Discount:number;
   PreparedBy:string;
   ApprovedBy:string;
   SubTotal:string;
@@ -60,6 +60,9 @@ export class AddOrderPageComponent implements OnInit {
       children.push({ label: i.toString(36) + i, value: i.toString(36) + i });
     }
     this.listOfOption = children;
+
+    this.Discount = 0;
+    this.updateOrderList();
   }
 
   setCurrentDate(){
@@ -71,32 +74,47 @@ export class AddOrderPageComponent implements OnInit {
 
   addOrder(){
     console.log("Adding order");
-    this.orderList = this.shared.getAddOrderTableData();
     
-    this.validateAll();
+    if(!this.validateAll()) return
     
     let fullOrder = this.getOrderObj()
-    // this.addOrderService.addOrder(fullOrder).then(()=>{
-    //   console.log("Order Added")
-    // })
+    this.addOrderService.addOrder(fullOrder).then(()=>{
+      console.log("Order Added")
+    })
   }
 
   validateAll(){
     //Validating Order Details
-    this.InvoiceNo = this.validateInt(this.InvoiceNo);
-    this.OrderNo = this.validateInt(this.OrderNo);
-    this.SuplierRefNo = this.validateInt(this.SuplierRefNo);
-    this.SupplyTime = this.validateTime(this.SupplyTime);
+    if(!this.isSame(this.InvoiceNo , this.validateInt(this.InvoiceNo))) return false
+    if(!this.isSame(this.OrderNo , this.validateInt(this.OrderNo))) return false
+    if(!this.isSame(this.SuplierRefNo , this.validateInt(this.SuplierRefNo))) return false
+    if(!this.isSame(this.SupplyTime , this.validateTime(this.SupplyTime))) return false
 
     let validDate = this.isValidDate(this.SupplyDate)
     if(validDate != undefined){
-      if(!validDate){this.SupplyDate = this.SupplyDate + "<- Invalid Date";}
+      if(!validDate){this.SupplyDate = this.SupplyDate + "<- Invalid Date"; return false}
     }
+    if(!this.validate_detail()) return false
+    return true
 
   }
 
+  isSame(a,b){
+    if(a == b)return true
+    return false
+  }
+
+  validate_detail(){
+    //Validate approved by and Prepared by
+    if(this.ApprovedBy === undefined) return false
+    if(this.ApprovedBy == "") return false
+    if(this.PreparedBy === undefined) return false
+    if(this.PreparedBy == "") return false
+    return true
+  }
+
   validateTime(time : string){
-    if (time === undefined ) return undefined
+    if (time === undefined ) {this.SupplyTime = this.SupplyTime + "<- Invalid" ; return undefined}
     if (time.match('^(0?[1-9]|1[012]):[0-5][0-9]$') ==  null){return time + "<- Invalid Time" }
     return time
   }
@@ -154,8 +172,9 @@ export class AddOrderPageComponent implements OnInit {
     }
 
     let otherInfo : OtherOrderInfo;
+    if(this.Discount === undefined) {this.Discount = 0;}
     otherInfo = {
-      "discount" : this.Discount,
+      "discount" : this.Discount.toString(),
       "approvedBy" : this.ApprovedBy,
       "preparedBy" : this.PreparedBy
     }
@@ -193,6 +212,32 @@ export class AddOrderPageComponent implements OnInit {
         console.log(this.SearchCustomer + " Not Found")
       }
     });
+  }
+
+  pageActive :boolean = true
+  updateOrderList(){
+    if(!this.pageActive) return
+    setTimeout(()=>{
+      this.orderList = this.shared.getAddOrderTableData();
+      this.updateCalculations()
+      this.updateOrderList()
+    } , 250);
+  }
+
+  ngOnDestroy(): void {
+    this.pageActive = false;
+  }
+
+  updateCalculations(){
+    //Calculate sums and discounts
+    if(Number.isNaN(this.Discount)) return
+    let subTot : number = 0
+    this.orderList.forEach((order)=>{
+      subTot = subTot + order.Price
+    });
+    this.SubTotal = subTot.toString();
+    this.DiscontShow = this.Discount.toString();
+    this.Total = (subTot - this.Discount).toString()
   }
 
   //methods for modal

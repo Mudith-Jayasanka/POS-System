@@ -1,7 +1,7 @@
 export interface ProductOrder {
         ProductCode: string;
         Menu: string;
-        Rate: Number;
-        Qty:Number;
-        Price: Number;
+        Rate: number;
+        Qty:number;
+        Price: number;
 }

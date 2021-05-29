@@ -109,127 +109,152 @@
 <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="1000px">
     <ng-container *nzModalContent>
         <button (click)="print()" style="text-align: center; position: fixed; right: 25%; width: 10%;" >Print</button> 
-        <div id="print-section" class="card" style="width: 18rem;background-image:image;">
+        <div id="print-section" class="card" style="padding: 0;">
             
-            <div class="card-body">
-              
-              <div style="width:700px; height:auto;">
-                <img style="width:170px; height:70px; position:absolute; top:0%;left:5%;	" src="/assets/natreec.png" />
-                <h1 style="position:absolute; top:5%;left:5%;font-size: 50px;">Invoice</h1>
-                <div style="position:relative; width:280px; height:100px; float:right; text-align:left; font-size:14px; right:25px;">
-                   <p style="font-size: 15px;">Na Tree caterers (pvt) Ltd<br>
-                      No 93/2 A, Old road, Nawala(11222).<br>
-                      O: 011 280 5883 | M: 077 746 4644<br>
-                      www.thenatree.com</p>
-                    
-                </div>
-                
-               <table style="width:50% ;position:relative; top:160px; font-size:14px;">	 
-             <tr>
-               <th>Name:</th>
-               <td>{{Name}}</td>
-             </tr>
-             <tr>
-               <th >Telephone:</th>
-               <td>{{Phone}}</td>
-             </tr>
-             <tr>
-               <th>Address:</th>
-               <td>{{Address}}</td>
-             </tr>
-             <tr>
-               <th>Email:</th>
-               <td>{{Email}}</td>
-             </tr>
-           </table>
-               <table style="width:48% ;position:relative; top:-50px; font-size:14px; right:-365px; ">	 
-             <tr>
-               <th>Date:</th>
-               <td>{{CurrentDate}}</td>
-             </tr>
-             <tr>
-               <th >Invoice No:</th>
-               <td>{{InvoiceNo}}</td>
-             </tr>
-             </table>
-               <table style="width:48% ;position:relative; top:-40px; font-size:14px; right:-365px; ">	 
-             <tr>
-               <th>supply Date:</th>
-               <td>{{SupplyDate}}</td>
-             </tr>
-              <tr>
-               <th>supply time:</th>
-               <td>{{SupplyTime}}</td>
-             </tr>
-             <tr>
-               <th >supp ref no:</th>
-               <td>{{SuplierRefNo}}</td>
-             </tr>
-             <tr>
-               <th >Order no:</th>
-               <td>{{OrderNo}}</td>
-             </tr>
-             </table>
-             
-               <table style="font-family: arial, sans-serif;
-             border-collapse: collapse;
-             width: 100%;float:center;font-size:16px;">
+          <div class="card-body">
 
-             <!-- doesn't work for now -->
-             <tr>
-               <th>Code</th>
-               <th>Description</th>
-               <th>Qty</th>
-               <th>Rate</th>
-               <th>Total(LKR)</th>
-             </tr>
-             <tr>
-               <td>{{ address }}</td>
-               <td>{{ customerName }}</td>
-               <td>{{ email}}</td>
-               <td>{{ phone}}</td>
-             </tr>
-           </table>
-           <table style="width:50% ;position:relative; top:20px; font-size:14px;">	 
-             <tr>
-               <th>Prepared by:</th>
-               <td>{{PreparedBy}}</td>
-             </tr>
-             <tr>
-               <th >Approved by:</th>
-               <td>{{ApprovedBy}}</td>
-             </tr>
-             <tr>
-               <th>Notes/Terms & condition:</th>
-               <td>.</td>
-             </tr>
-             
-           </table>
-           <table style="width:50% ;position:relative; top:-100px; font-size:14px; right:-350px; ">	 
-             <tr>
-               <th>Sub total:</th>
-               <td>{{SubTotal}}</td>
-             </tr>
-             <tr>
-               <th >Discount:</th>
-               <td>{{DiscontShow}}</td>
-             </tr>
-             <tr>
-               <th> Advance:</th>
-               <td>.</td>
-             </tr>
-             <tr>
-               <th ><b>Total</b>:</th>
-               <td>Total</td>
-             </tr>
-             </table>
-             
-             <p style="position:relative; top:-80px; font-size:17px;float:center;"> Please write the cheques in favour of NA TREE CATERERS PVT LTD </p>
-               
-             </div>
+            <div style="width:700px; height:800px;">
+
+              <div class="col-6" > 
+                  <img style="width:200px; height:auto;margin-left:23%;" src="/assets/natreec.png" />
+                  <br>
+                  <h1 style="font-size: 50px;text-align: center;">Invoice</h1>
+              </div>
+              <div class="col-6"> 
+                  <div style="width:280px; height:100px; float:right; text-align:left; font-size:14px;">
+                        <p style="font-size: 15px;">Na Tree caterers (pvt) Ltd<br>
+                          No 93/2 A, Old road, Nawala(11222).<br>
+                          O: 011 280 5883 | M: 077 746 4644<br>
+                          www.thenatree.com</p>
+                  </div>
+              </div>
+                <div class="col-6"> 
+                  <br>
+                  <table style="width:98% ;font-size:14px; margin-left:2%; ">	 
+                    <tr>
+                      <th>Date:</th>
+                      <td>{{CurrentDate}}</td>
+                    </tr>
+                    <tr>
+                      <th >Invoice No:</th>
+                      <td>{{InvoiceNo}}</td>
+                    </tr>
+                    </table>
+                </div>
+
+              <div class="col-12">
+                <div class="col-6" > 
+                  <table style="width:100% ;font-size:14px;">	 
+                    <tr>
+                      <th>Name:</th>
+                      <td>{{Name}}</td>
+                    </tr>
+                    <tr>
+                      <th >Telephone:</th>
+                      <td>{{Phone}}</td>
+                    </tr>
+                    <tr>
+                      <th>Address:</th>
+                      <td>{{Address}}</td>
+                    </tr>
+                    <tr>
+                      <th>Email:</th>
+                      <td>{{Email}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-6"> 
+                      <table style="width:98% ; font-size:14px; margin-left:2%;">	 
+                    <tr>
+                      <th>supply Date:</th>
+                      <td>{{SupplyDate}}</td>
+                    </tr>
+                    <tr>
+                      <th>supply time:</th>
+                      <td>{{SupplyTime}}</td>
+                    </tr>
+                    <tr>
+                      <th >supp ref no:</th>
+                      <td>{{SuplierRefNo}}</td>
+                    </tr>
+                    <tr>
+                      <th >Order no:</th>
+                      <td>{{OrderNo}}</td>
+                    </tr>
+                    </table>
+                </div>
+              </div>
               
+              <div class="col-12" style="height:300px">
+                <br>
+                <table style="font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;float:center;font-size:16px;">
+                  <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <!--<th>Total(LKR)</th>-->
+                  </tr>
+                  <tr *ngFor="let data of listOfData " >
+                    <td>{{ data.offerName }}</td>
+                    <td>{{ data.offerCode }}</td>
+                    <td>{{ data.products}}</td>
+                    <!--<td>{{ phone}}</td>-->
+                  </tr>
+                </table>
+              </div>
+
+              <div class="col-12" >
+                <div class="col-6">
+                  <table style="width:100% ;font-size:14px;">	 
+                    <tr>
+                      <th>Prepared by:</th>
+                      <td>{{PreparedBy}}</td>
+                    </tr>
+                    <tr>
+                      <th >Approved by:</th>
+                      <td>{{ApprovedBy}}</td>
+                    </tr>
+                    <tr>
+                      <th>Notes/Terms & condition:</th>
+                      <td><br></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-6">
+                  <table style="width:98% ;font-size:14px; margin-left:2%;">	 
+                    <tr>
+                      <th>Sub total:</th>
+                      <td>{{SubTotal}}</td>
+                    </tr>
+                    <tr>
+                      <th >Discount:</th>
+                      <td>{{DiscontShow}}</td>
+                    </tr>
+                    <tr>
+                      <th> Advance:</th>
+                      <td>.</td>
+                    </tr>
+                    <tr>
+                      <th ><b>Total</b>:</th>
+                      <td>Total</td>
+                    </tr>
+                    </table>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <p style="font-size:17px;float:center;"> Please write the cheques in favour of NA TREE CATERERS PVT LTD </p>
+              </div>
+
             </div>
+          </div>
+            
         </div>
+              
+              
 
     </ng-container>
   </nz-modal>

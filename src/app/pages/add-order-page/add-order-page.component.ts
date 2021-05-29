@@ -9,7 +9,12 @@ import { ProductOrder } from 'src/app/Interfaces/product-order';
 import { AddOrderService } from 'src/app/services/add-order.service';
 import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpage.service';
 
-
+//for test
+interface OrderHistoryItem {
+  offerName : string;
+  offerCode :string;
+  products : string;
+}
 
 @Component({
   selector: 'app-add-order-page',
@@ -223,6 +228,28 @@ export class AddOrderPageComponent implements OnInit {
   print(){
     this.printerService.printDiv('print-section');
   }
+
+  listOfData: OrderHistoryItem[] = [
+    {
+      offerName : 'offer1',
+      offerCode : '9001',
+      products :'RP-B-m-3 , Yk-m-c-1',
+      
+    },
+    {
+      offerName : 'offer2',
+      offerCode : '9002',
+      products :'RP-B-m-3 , Yk-m-c-1',
+      
+    },
+    {
+      offerName : 'offer3',
+      offerCode : '9003',
+      products :'RP-B-m-3 , Yk-m-c-1',
+      
+    }
+    
+  ];
 
 
 }

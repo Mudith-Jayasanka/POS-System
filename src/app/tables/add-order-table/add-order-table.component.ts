@@ -54,4 +54,9 @@ export class AddOrderTableComponent implements OnInit {
     this.pageExit = true;
   }
 
+  validInt(str : any){
+    //check if str is a valid int
+  }
+
+
 }

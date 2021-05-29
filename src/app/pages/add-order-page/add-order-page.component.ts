@@ -70,8 +70,9 @@ export class AddOrderPageComponent implements OnInit {
     this.validateAll();
     
     let fullOrder = this.getOrderObj()
-    // this.addOrderService.addOrder(fullOrder)
-    this.addCustomer(fullOrder.customerDetails)
+    // this.addOrderService.addOrder(fullOrder).then(()=>{
+    //   console.log("Order Added")
+    // })
   }
 
   validateAll(){
@@ -163,21 +164,6 @@ export class AddOrderPageComponent implements OnInit {
     }
     return order
   }
-
-  // getdata(){
-
-
-  //   let productData : Product;
-  //   productData = {
-  //     "code" : "BR-R-C2",
-  //     "foodType" : "C",
-  //     "menu" : ["Chicken Biriyani" , "Roast Chicken" , "Cashew Curry" , "B&F Eggs" , "M/ Fish Sambol" , "Koroma Curry"],
-  //     "packsAmt" : 2,
-  //     "price" : 2000
-  //   }
-  //   this.addOrderService.addProduct(productData);
-
-  // }
 
   addCustomer(Customer : CustomerDetails){
     this.addOrderService.addCustomer().doc(Customer.phone.toString()).get().subscribe((data)=>{

@@ -41,21 +41,19 @@ export class CustomerTableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  resetname(): void {
+  reset(): void {
     this.searchValue = '';
-    this.searchname();
+    this.search();
   }
-  resetnumber(): void {
-    this.searchValue = '';
-    this.searchnumber();
-  }
-  searchname(): void {
+
+  search(): void {
     this.visible = false;
     this.listOfDisplayData = this.listOfData.filter((item: DataItem) => item.name.indexOf(this.searchValue) !== -1);
   }
-  searchnumber(): void {
-    this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter((item: DataItem) => item.phoneNumber.indexOf(this.searchValue) !== -1);
+
+  deleteRow(id: string): void {
+    this.listOfData = this.listOfData.filter(d => d.phoneNumber !== id);
   }
+  
 
 }

@@ -27,6 +27,14 @@ import { OrderHistoryPageComponent } from './pages/order-history-page/order-hist
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { SalesSummeryComponent } from './pages/sales-summery/sales-summery.component';
 import { NgxPrinterModule } from 'ngx-printer';
+import { CustomerDetailsPageComponent } from './pages/customer-details-page/customer-details-page.component';
+import { ViewProductsComponent } from './pages/view-products/view-products.component';
+import { ViewOffersComponent } from './pages/view-offers/view-offers.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+
+
 
 
 registerLocaleData(hi);
@@ -41,7 +49,13 @@ registerLocaleData(hi);
     AddCustomersComponent,
     OrderHistoryPageComponent,
     AddProductPageComponent,
-    SalesSummeryComponent
+    SalesSummeryComponent,
+    CustomerDetailsPageComponent,
+    ViewProductsComponent,
+    ViewOffersComponent,
+    LoginComponent,
+    RegisterComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +69,10 @@ registerLocaleData(hi);
     BrowserAnimationsModule,
     NgxPrinterModule.forRoot({printOpenWindow: true}),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

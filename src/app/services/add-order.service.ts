@@ -16,6 +16,10 @@ export class AddOrderService {
     return this.angfire.collection("Orders").doc(Order.orderDetails.orderNo.toString()).set(Order);
   }
 
+  getProduct(){
+    return this.angfire.collection("Products")
+  }
+
   addCustomer(){
     return this.angfire.collection("Customers")
   }

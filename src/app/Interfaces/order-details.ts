@@ -1,7 +1,7 @@
 export interface OrderDetails {
     orderDate : string;
-    invoiceNo : Number;
-    orderNo : Number;
+    invoiceNo : number;
+    orderNo : number;
     supplyDate : string;
-    supplyRefNo : Number;
+    supplyRefNo : number;
 }

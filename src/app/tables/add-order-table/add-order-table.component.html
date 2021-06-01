@@ -4,7 +4,7 @@
       <input class="inputup" type="text" [(ngModel)]="SelectedProductCode" id="ino" name="SelectedProductCode" placeholder="Product Code" style="font-size: 20px;position: fixed;top:3%;left:23%" >
       <input class="inputup" type="text" [(ngModel)]="SelectedQty" id="ino" name="selectedQty" placeholder="Qty" style="font-size: 20px;position: fixed;top:3%;left:50%">
       <!--<button nz-button (click)="addRow()" nzType="primary" style="position: fixed;top:5%;left:25%" >Add</button>-->
-      <button (click)="addRow()" style="position: fixed;top:2.5%;right:6%; width: 12%;" >Add</button>
+      <button (click)="validateAndAdd()" style="position: fixed;top:2.5%;right:6%; width: 12%;" >Add</button>
       <br />
       <br />
 </div>
@@ -18,6 +18,7 @@
           <th>Description/Menu</th>
           <th>Rate</th>
           <th>Qty</th>
+          <th>Price</th>
           <th>Delete</th>
         </tr>
       </thead>
@@ -27,6 +28,7 @@
           <td>{{ data.Menu }}</td>
           <td>{{ data.Rate}}</td>
           <td>{{ data.Qty}}</td>
+          <td>{{ data.Price }}</td>
           <td>
             <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.ProductCode)">Delete</a>
           </td>

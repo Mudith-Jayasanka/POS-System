@@ -5,7 +5,6 @@ interface OrderHistoryItem {
   phone :string;
   address:string;
   email:string;
-  
 
 }
 
@@ -18,6 +17,9 @@ export class CustomerDetailsPageComponent implements OnInit {
   isVisible = false;
   searchValue = '';
   visible = false;
+
+  Searchname:string; //search input
+
   constructor() { }
 
   ngOnInit(): void {
@@ -66,18 +68,12 @@ export class CustomerDetailsPageComponent implements OnInit {
   ];
   listOfDisplayData = [...this.listOfData];
 
-  reset(): void {
-    this.searchValue = '';
-    this.search();
-  }
-
-  search(): void {
-    this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter((item: OrderHistoryItem) => item.name.indexOf(this.searchValue) !== -1);
-  }
-
   deleteRow(id: string): void {
     this.listOfData = this.listOfData.filter(d => d.phone !== id);
+  }
+
+  searchcustomer(){
+
   }
 
 }

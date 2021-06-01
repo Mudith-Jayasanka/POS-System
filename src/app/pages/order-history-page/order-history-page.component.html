@@ -5,27 +5,20 @@
 
     </div>
     <div class="hero-image"><!-- | background image |  -->
-        <a href="#" style="position: absolute;top: 13%;left:2% " > 
+        <a routerLink="/homepage" style="position: absolute;top: 13%;left:2% " > 
             <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
             
         <img style="position: relative;left: 37%;top: 12%; height: 67px;" src="/assets/orderhistory.png" alt="add order text">
         
-        
 
         <div class="billbox"> <!-- | product details & table |  -->
             <div style="padding: 20px;">
-                <app-view-offers></app-view-offers>
                 <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
                     <thead>
                       <tr>
                         <th>Order No</th>
                         <th>Invoice No</th>
-                        <th nzCustomFilter>
-                            Customer Name
-                          <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
-                            <i nz-icon nzType="search"></i>
-                          </nz-filter-trigger>
-                        </th>
+                        <th>Customer Name</th>
                         <th>ApprovedBy</th>
                         <th>PreparedBy</th>
                         <th>Total</th>
@@ -44,18 +37,6 @@
                       </tr>
                     </tbody>
                   </nz-table>
-                  <nz-dropdown-menu #menu="nzDropdownMenu">
-                    <div class="ant-table-filter-dropdown">
-                      <div class="search-box">
-                        <input type="text" nz-input placeholder="Search customer by name" [(ngModel)]="searchValue" />
-                        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
-                          Search
-                        </button>
-                        <button nz-button nzSize="small" (click)="reset()">Reset</button>
-                      </div>
-                    </div>
-                  </nz-dropdown-menu>
-               
                
             </div>
             

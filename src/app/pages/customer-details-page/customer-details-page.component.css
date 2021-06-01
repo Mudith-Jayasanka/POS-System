@@ -1,0 +1,46 @@
+input{ 
+    font-size: 20px;
+    margin-bottom: 0.5%;
+    padding-left: 15px;
+    background-color: #EBEBEB;
+    border: none;
+    border-radius: 15px;
+    cursor: text;
+  }
+
+  button {
+    border:none;
+    font-size: 18px; 
+    background-color: #0C9A2B;
+     border-radius: 15px; 
+     color: white; 
+     padding: 5px;
+    
+  }
+
+  button:hover{
+    border:none;
+    font-size: 18px; 
+    background-color: #3fda2d;
+    border-radius: 15px; 
+    color: white; 
+    padding: 5px;
+     
+  }
+
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .imagebtns{
+    transition: transform .3s;
+  }
+
+  .imagebtns:hover{
+    transform: scale(1.05); 
+  }
+  .imagebtns:active{
+    filter:saturate(2);
+  }

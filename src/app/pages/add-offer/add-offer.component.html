@@ -1,0 +1,104 @@
+<div>
+
+    <div class="topbox"> <!-- | green box |  -->
+          
+      <img style="position: fixed; right:45%; top: 10px; height: 67px;" src="/assets/nalogow.png" alt="Logo Na tree">
+  
+    </div>
+  
+    <div class="hero-image"><!-- | background image |  -->
+  
+        <a routerLink="/homepage" style="position: absolute;top: 13%;left:2% " > 
+          <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
+          
+      <img style="position: relative;left: 33%;top: 12%; height: 67px;"  src="/assets/addoffers.png" alt="add Offer text">
+  
+      <div class="tablebox"> 
+  
+        <div class="tablebox2"><!-- | product details & table |  -->
+          <h2 style="text-align: left;"><b>Enter Offer Info</b></h2>
+  
+          <label for="ino" style="font-size: 20px; bottom: 72.5%;">Offer Name :</label>
+          <input autocomplete="off" type="text" [(ngModel)]="OfferName" id="ino" name="name" placeholder="Offer Name" style="bottom: 72%;" >
+          
+          <label for="ono"style="bottom: 64.5%;">Offer Code :</label>
+          <input autocomplete="off"  type="text" [(ngModel)]="OfferCode" (ngModelChange)="updateOfferListCode()" id="ono" name="phone" placeholder="eg. XX-X" style="bottom: 62.5%;"  >
+           
+          <label for="sd" style="font-size: 20px;" style="bottom: 54.5%;">Unit Price :</label>
+          <input autocomplete="off" type="text" [(ngModel)]="OfferUnitPrice" id="sd" name="name" placeholder="eg.XXXX.XX" style="bottom: 53%;" >
+
+          <label for="st"style="bottom: 44.5%;">Additional Info :</label>
+          <textarea autocomplete="off" id="w3review" [(ngModel)]="AdditionalInfo" placeholder="Additional Info" name="w3review" rows="4" cols="50" style="bottom: 29.5%;height: 20%;"></textarea>
+          
+          <div class="imagebtns" style="position: absolute;bottom: 6.5%;right: 51%;"> <!-- | view products btn |  -->
+            <app-view-offers></app-view-offers>
+          </div>
+          <div routerLink="/sales-Summery" class="imagebtns" style="position: absolute; bottom: 6.5%;right: 12%;padding-left: 20px;"> <!-- | order history btn |  -->
+              <img src="/assets/viewsalessum.png" alt="d" style="height: 90px;">
+          </div>    
+        </div>
+  
+        <div class="tablebox1"><!-- | product details & table |  -->
+          <div class="tablebox3"><!-- | table |  -->
+  
+            <div>
+              <label for="ino" style="font-size: 20px;position: fixed;top:3%;left:5%">Add Products :</label>
+                <input class="inputup" type="text" [(ngModel)]="ProductCode" id="ino1" name="name1" placeholder="Product Code eg.XX-X" style="font-size: 20px;position:fixed;top:3%;left:20%;width: 45%;" >
+                <!--<button nz-button (click)="addRow()" nzType="primary" style="position: fixed;top:5%;left:25%" >Add</button>-->
+                <button (click)="addRow()" style="position: fixed;top:2.5%;right:6%; width: 12%;" >Add+</button>
+                <br>
+              </div>    
+                
+  
+              <div class="col-10" style="height: 90%; overflow-y: scroll;overflow-x: hidden; width:100%; margin-left: 1%;margin-top:5%;">
+                <br>
+                <nz-table #editRowTable nzBordered [nzData]="listOfData" >
+                  <thead>
+                    <tr>
+                      <th>Product Code</th>
+                      <th>Product Name</th>
+                      <th>Product Price</th>
+                      <th>Product Additional Info</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of editRowTable.data" class="editable-row">
+                      <td>{{ data.productCode }}</td>
+                      <td>{{ data.productName }}</td>
+                      <td>{{ data.price }}</td>
+                      <td>{{ data.additionalInfo }}</td>
+                      <td>
+                        <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.productCode)">Delete</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </nz-table>
+              </div>
+          </div>
+  
+         <!-- <div class="generatebox" style="border: 3px solid #0C9A2B; position:absolute;bottom:28%; width: 80%; height: 18%; border-radius: 20px;">
+            <label for="sd" style="font-size: 20px; bottom: 31%; margin-left: 6%; " ><b>Generated </b><br><b>Meat Code</b> </label>
+            <label for="ssd" style="font-size: 30px; bottom: 33%; margin-left: 22%; " >= </label>
+            <div  class="show" style="bottom: 32%; width:48%;right: 15%;height: 8%;"><p>{{GeneratedCode}}</p></div>
+  
+          </div>-->
+  
+          <div class="imagebtns" style="position: absolute;bottom: 6.5%;right: 50%;"> <!-- | accept order btn |  -->
+            <img src="/assets/acceptobtn.png" (click)="addOffer()" alt="d" style="height: 80px;">
+          </div>
+          <div class="imagebtns" style="position: absolute; bottom: 6.5%;right: 22%;" > <!-- | cancel order btn |  -->
+              <img src="/assets/cancelobtn.png" alt="d" style="height: 80px;">
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  
+    <div class="footer"> <!-- | footer box |  -->
+      <p style="position: relative; font-size: 15px;left:31%;top:22%;"><b>All Rights Reserved NaTree 2021</b></p>
+    </div>
+  </div>  

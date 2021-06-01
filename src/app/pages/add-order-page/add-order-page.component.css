@@ -160,3 +160,15 @@
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .imagebtns{
+    transition: transform .3s;
+  }
+
+  .imagebtns:hover{
+    transform: scale(1.05); 
+  }
+
+  .imagebtns:active{
+    filter:saturate(2);
+  }

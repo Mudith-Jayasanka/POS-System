@@ -1,15 +1,17 @@
 
 
 <div class="imagebtns" (click)="showModal()"> 
-    <img src="/assets/veiwcusbtn.png" alt="d" style="height: 90px;">
+    <img src="/assets/voff.png" alt="d" style="height: 90px;">
 </div>    
-<nz-modal [(nzVisible)]="isVisible"  (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="1400px">
+<nz-modal [(nzVisible)]="isVisible"  (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="1400px" >
       <ng-container *nzModalContent>
-
+        <img src="/assets/votext.png" alt="d"style="height: 59px;">
+        <div class="box">
+          <br>
         <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search Offer :</label> 
             <input type="text" [(ngModel)]="SearchOffer" id="ino" name="name" placeholder="Offer name" style="font-size:20px;">
-            
             <button style="padding: 5px;" (click)="searchOffer()" >Search</button>
+            <br><br>
         <nz-table #editRowTable nzBordered [nzData]="listOfData" >
             <thead>
               <tr>
@@ -29,7 +31,9 @@
                 </td>
               </tr>
             </tbody>
+          
           </nz-table>
+        </div>
       </ng-container>
 
     </nz-modal>

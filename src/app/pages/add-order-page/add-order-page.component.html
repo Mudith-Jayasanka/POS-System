@@ -1,6 +1,6 @@
 <div>
     <div class="topbox"> <!-- | green box |  -->
-        <a href="#" style="position: absolute;bottom: 17%;left:2% " > 
+        <a routerLink="/homepage" style="position: absolute;bottom: 17%;left:2% " > 
             <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
 
         <img style="position: relative;left: 40%;top: 10px; height: 67px;" src="/assets/addordertxt.png" alt="add order text">
@@ -81,20 +81,17 @@
 
         </div>
 
-        <div class="imagebtns" (click)="showModal()"> <!-- | print btn |  -->
-            <img src="/assets/print btn.png" alt="d"style="height: 90px;position: absolute;bottom: 6.5%;right: 44.5%;">
+        <div class="imagebtns" (click)="showModal()" style="position: absolute;bottom: 6.5%;right: 46%;"> <!-- | print btn |  -->
+            <img src="/assets/print btn.png" alt="d" style="height: 90px;">
         </div>
-        <div style="position: absolute;bottom: 6.5%;right: 29%;">
+        <div style="position: absolute;bottom: 6.5%;right: 32.5%;">
             <app-customer-details-page></app-customer-details-page>
         </div>
-        <!--<div class="imagebtns" (click)="getdata()"> 
-            <img src="/assets/veiwcusbtn.png" alt="d" style="height: 90px;position: absolute;bottom: 6.5%;right: 29%;">
-        </div>-->
-        <div class="imagebtns" (click)="addOrder()"> <!-- | accept order btn |  -->
-            <img src="/assets/acceptobtn.png" alt="d" style="height: 90px;position: absolute;bottom: 6.5%;right: 15%;">
+        <div class="imagebtns" (click)="addOrder()" style="position: absolute;bottom: 6.5%;right: 15%;"> <!-- | accept order btn |  -->
+            <img src="/assets/acceptobtn.png" alt="d" style="height: 90px;">
         </div>
-        <div class="imagebtns"> <!-- | cancel order btn |  -->
-            <img src="/assets/cancelobtn.png" alt="d" style="height: 90px;position: absolute; bottom: 6.5%;right: 1%;">
+        <div class="imagebtns" style="position: absolute; bottom: 6.5%;right: 1%;"> <!-- | cancel order btn |  -->
+            <img src="/assets/cancelobtn.png" alt="d" style="height: 90px;">
         </div>
 
         <div class="footer"> <!-- | footer box |  -->

@@ -8,7 +8,7 @@
 
   <div class="hero-image"><!-- | background image |  -->
 
-      <a href="#" style="position: absolute;top: 13%;left:2% " > 
+      <a routerLink="/homepage" style="position: absolute;top: 13%;left:2% " > 
         <img src="/assets/backbtn.png" alt="d"style="height: 59px;"></a> <!-- | back btn |  -->
         
     <img style="position: relative;left: 33%;top: 12%; height: 67px;"  src="/assets/addprodtxt.png" alt="add order text">
@@ -43,11 +43,11 @@
         <label for="st"style="bottom: 40.5%;">Additional Info :</label>
         <textarea autocomplete="off" id="w3review" [(ngModel)]="AdditionalInfo" placeholder="Additional Info" name="w3review" rows="4" cols="50" style="bottom: 25%;height: 20%;"></textarea>
         
-        <div class="imagebtns"> <!-- | accept order btn |  -->
-          <img src="/assets/viewpbtn.png" alt="d" style="height: 80px;position: absolute;bottom: 6.5%;right: 51%;">
+        <div class="imagebtns" style="position: absolute;bottom: 6.5%;right: 51%;"> <!-- | view products btn |  -->
+          <app-view-products></app-view-products>
         </div>
-        <div class="imagebtns"> <!-- | cancel order btn |  -->
-            <img src="/assets/orderhisbtn.png" alt="d" style="height: 80px;position: absolute; bottom: 6.5%;right: 18%;">
+        <div routerLink="/Order-History" class="imagebtns" style="position: absolute; bottom: 6.5%;right: 17%;padding-left: 20px;"> <!-- | order history btn |  -->
+            <img src="/assets/orderhisbtn.png" alt="d" style="height: 80px;">
         </div>    
       </div>
 
@@ -60,11 +60,12 @@
               <input class="inputup" type="text" [(ngModel)]="PaxPrice" id="ino2" name="name2" placeholder="Pax Price" style="font-size: 20px;position:fixed;top:3%;left:33%; width:35%;">
               <!--<button nz-button (click)="addRow()" nzType="primary" style="position: fixed;top:5%;left:25%" >Add</button>-->
               <button (click)="addRow()" style="position: fixed;top:2.5%;right:6%; width: 12%;" >Add+</button>
-              <br />
+              <br>
             </div>    
               
 
-            <div class="col-10" style="height: 60%; overflow-y: scroll;overflow-x: hidden; width:95%; margin-left: 3%;">
+            <div class="col-10" style="height: 90%; overflow-y: scroll;overflow-x: hidden; width:100%; margin-left: 1%;margin-top:5%;">
+              <br>
               <nz-table #editRowTable nzBordered [nzData]="listOfData" >
                 <thead>
                   <tr>
@@ -95,11 +96,11 @@
 
         </div>-->
 
-        <div class="imagebtns"> <!-- | accept order btn |  -->
-          <img src="/assets/acceptobtn.png" (click)="addProduct()" alt="d" style="height: 80px;position: absolute;bottom: 6.5%;right: 50%;">
+        <div class="imagebtns" style="position: absolute;bottom: 6.5%;right: 50%;"> <!-- | accept order btn |  -->
+          <img src="/assets/acceptobtn.png" (click)="addProduct()" alt="d" style="height: 80px;">
         </div>
-        <div class="imagebtns"> <!-- | cancel order btn |  -->
-            <img src="/assets/cancelobtn.png" alt="d" style="height: 80px;position: absolute; bottom: 6.5%;right: 23%;">
+        <div class="imagebtns" style="position: absolute; bottom: 6.5%;right: 22%;" > <!-- | cancel order btn |  -->
+            <img src="/assets/cancelobtn.png" alt="d" style="height: 80px;">
         </div>
 
       </div>

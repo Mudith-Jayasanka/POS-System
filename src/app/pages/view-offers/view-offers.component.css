@@ -27,3 +27,21 @@ input{
     padding: 5px;
      
   }
+
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .imagebtns{
+    transition: transform .3s;
+  }
+
+  .imagebtns:hover{
+    transform: scale(1.05); 
+  }
+
+  .imagebtns:active{
+    filter:saturate(2);
+  }

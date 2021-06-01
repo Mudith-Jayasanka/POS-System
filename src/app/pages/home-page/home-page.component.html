@@ -1,78 +1,59 @@
 <div class="topbox"> <!-- | green box |  -->
-    
-
-    <img style="position: relative;left: 40%;top: 10px; height: 67px;" src="/assets/nalogow.png" alt="Na tree logo">
-    
+    <img id="logo"  src="/assets/nalogow.png" alt="Na tree logo">
 </div>
 <div class="hero-image"><!-- | background image |  -->
 
-    <p style="position: absolute; top: 100px;left: 45%; font-size: 40px;font-family: Sofia, sofia pro;">
-        <b>ADMIN</b>
-    </p>
-    <p style="position: absolute; top: 160px;left: 38%; font-size: 30px;font-family: Sofia, sofia pro;text-align: center;">
-        Wellcome to Na Tree POS system
-    </p>
+    
+    <div class="col-12" style="height:40vh;"> 
+        <img id="admintext" src="assets/admintxt.png" alt="admin,welcome to the pos system">
+    </div>
 
-    <div class="row1">
-        <div class="row1 img">
-            <a href="#">
-            <img src="cl1.png" alt="d">
-            </a>
-        </div>
-    </div>
-    <div class="row1">
-        <div class="row1 img">
-            <a href="#">
-            <img src="cl2.png" alt="d">
-            </a>
-        </div>
-    </div>
-    <div class="row1">
-        <div class="row1 img">
-            <a href="#">
-            <img src="cl3.png" alt="d">
-            </a>
-        </div>
-    </div>
-    <div class="row2">
-        <div class="row2 img">
-            <a routerLink="/Add-Order">
-            <img src="assets/c21.png" alt="d">
-            </a>
+    <div class="col-12" style="height:20vh;"> 
+        <div class="middlerow">
+            <div id="middlefloat"><app-view-offers></app-view-offers></div>
+            <div id="middlefloat"><img id="midc" src="assets/midc.png" alt="d"></div>
+            <div id="middlefloat"><app-customer-details-page></app-customer-details-page></div>
         </div>
     </div>
 
-    <div class="row2">
-        <div class="row2 img">
-            <a routerLink="/Add-customers">
-            <img src="assets/c22.png" alt="d">
-            </a>
+    <div class="col-12" id="downrow" style="height:40vh;"> 
+        <div class="row2">
+            <div class="row2 img">
+                <a routerLink="/Add-Order">
+                <img src="assets/c21.png" alt="d">
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="row2">
-        <div class="row2 img">
-            <a routerLink="/Order-History">
-            <img src="assets/c23.png" alt="d">
-            </a>
-        </div>
-    </div>
-    <div class="row2">
-        <div class="row2 img">
-            <a href="#">
-            <img src="assets/c24.png" alt="d">
-            </a>
-        </div>
-    </div>
-    <div class="row2">
-        <div class="row2 img">
-            <a href="/Add-Product">
-            <img src="assets/c25.png" alt="d">
-            </a>
-        </div>
-    </div>
 
-
-
+        <div class="row2">
+            <div class="row2 img">
+                <a routerLink="/Add-Offers">
+                <img src="assets/c22.png" alt="d">
+                </a>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="row2 img">
+                <a routerLink="/Order-History">
+                <img src="assets/c23.png" alt="d">
+                </a>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="row2 img">
+                <a href="/sales-Summery">
+                <img src="assets/vsaless.png" alt="Sales summery button">
+                </a>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="row2 img">
+                <a href="/Add-Product">
+                <img src="assets/c25.png" alt="d">
+                </a>
+            </div>
+        </div>
+    </div>
 
 </div>
 

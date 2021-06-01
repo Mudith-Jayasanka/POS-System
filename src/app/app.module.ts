@@ -18,8 +18,6 @@ import { CustomerTableComponent } from './tables/customer-table/customer-table.c
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { AddOrderPageComponent } from './pages/add-order-page/add-order-page.component';
 import { AddOrderTableComponent } from './tables/add-order-table/add-order-table.component';
-import { AddCustomersComponent } from './pages/add-customers/add-customers.component';
-
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireDatabaseModule } from "@angular/fire/database"
 import { environment } from "../environments/environment";
@@ -33,6 +31,7 @@ import { ViewOffersComponent } from './pages/view-offers/view-offers.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AddOfferComponent } from './pages/add-offer/add-offer.component';
 
 
 
@@ -46,7 +45,6 @@ registerLocaleData(hi);
     CustomerTableComponent,
     AddOrderPageComponent,
     AddOrderTableComponent,
-    AddCustomersComponent,
     OrderHistoryPageComponent,
     AddProductPageComponent,
     SalesSummeryComponent,
@@ -54,7 +52,8 @@ registerLocaleData(hi);
     ViewProductsComponent,
     ViewOffersComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddOfferComponent
     
   ],
   imports: [

@@ -46,7 +46,8 @@
   .billbox{
     position: absolute;
     width: 90%;
-    height: 68%;
+    min-height: 68%;
+    height: auto;
     left: 5%;
     top: 25%;
     /*border: 1px solid red;*/

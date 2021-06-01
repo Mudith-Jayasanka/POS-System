@@ -1,3 +1,22 @@
+[class*="col-"] {
+	float:left;
+    padding: 0;
+/*border: 1px solid red; /*remove this line after */
+
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 20%;}   /*25*/
+.col-4 {width: 33.33%;} /*25*/
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 80%;}  /*75*/
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
 .topbox{
     position: fixed;
     width:100%;
@@ -14,13 +33,14 @@
     background-color: #dddbdb;
  }
  .hero-image {
-    background-image: url("/assets/bi11.png");
-    height: 90vh; 
-    background-repeat: no-repeat; 
-    background-size: cover;
-    align-items: baseline;
-    
-  }
+  background-image: url("/assets/bi11.png");
+  height: 100vh; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  align-items: baseline;
+  
+}
+
   .row1{
     position: relative;
     left: 23%;
@@ -38,16 +58,62 @@
   }
 
   .row2{
-    position:relative ;
-    top: 200px;
     padding: 0 5px;
-    float: left;
-    left:-75px; 
+    float: left; 
+    transition: transform .3s;
     
+  }
+
+  .row2 :hover{
+    transform: scale(1.05); 
+    filter:drop-shadow(0px 0px 5px rgba(128, 128, 128, 0.420));
+  }
+
+  .row2 :active{
+    filter:saturate(1.4);
+    /*filter:drop-shadow(0px 0px 5px rgba(26, 131, 35, 0.420));*/
   }
 
   div.row2 img{
     position: relative;
       width: 187px;
       height: 195px;
+  }
+
+  #admintext {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60%;
+    margin-top: 6%;
+  }
+
+  #logo{
+    margin-top: 5px;
+    display: block;
+    height: 67px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #midc{
+    height: 100px;
+  }
+
+  .middlerow{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-left: 2.8%;
+  }
+
+  #middlefloat{
+    margin-left: 20px;
+    float: left;
+    margin-top: 0;
+  }
+
+  #downrow{
+    padding-left: 16%;
   }

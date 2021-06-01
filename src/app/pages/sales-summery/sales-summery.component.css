@@ -1,0 +1,75 @@
+[class*="col-"] {
+	float:left;
+    padding: 0;
+/*border: 1px solid red; /*remove this line after */
+
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 20%;}   /*25*/
+.col-4 {width: 33.33%;} /*25*/
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 80%;}  /*75*/
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.topbox{
+    position: fixed;
+    width:100%;
+    height:11%;
+    background-color: #0C9A2B;
+    
+ }
+ .footer{
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  height:4.5%;
+  width: 100%;
+    background-color: #dddbdb;
+ }
+ .hero-image {
+    background-image: url("/assets/bi11.png");
+    height: 100vh; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    align-items: baseline;
+    
+  }
+
+
+
+  .billbox{
+    position: absolute;
+    width: 90%;
+    min-height: 68%;
+    height: auto;
+    left: 5%;
+    top: 25%;
+    /*border: 1px solid red;*/
+    background-color: white;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));    
+  }
+
+
+  .search-box {
+    padding: 8px;
+  }
+
+  .search-box input {
+    width: 188px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .search-box button {
+    width: 90px;
+  }
+
+  .search-button {
+    margin-right: 8px;
+  }

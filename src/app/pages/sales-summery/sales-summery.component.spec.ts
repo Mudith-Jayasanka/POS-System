@@ -22,4 +22,5 @@ describe('SalesSummeryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

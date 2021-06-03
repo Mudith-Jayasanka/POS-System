@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddOrderService } from 'src/app/services/add-order.service';
 
 interface OrderHistoryItem {
   OrderNo : string;
@@ -21,41 +22,20 @@ export class OrderHistoryPageComponent implements OnInit {
   searchValue = '';
   visible = false;
 
-  constructor() { }
+  constructor(private fb : AddOrderService) { }
 
-  listOfData: OrderHistoryItem[] = [
-    {
-      OrderNo : '0001',
-      InvoiceNo : '10001',
-      CustomerName:'Robert Blake',
-      ApprovedBy: 'Tom Ellis',
-      PreparedBy: 'Jonh Brown',
-      Total: '2000', 
-      Date : '02/02/2021'
-    },
-    {
-      OrderNo : '0002',
-      InvoiceNo : '10002',
-      CustomerName:'dean roberts',
-      ApprovedBy: 'Tom Ellis',
-      PreparedBy: 'Jack Black',
-      Total: '4200', 
-      Date : '02/02/2021'
-    },
-    {
-      OrderNo : '0003',
-      InvoiceNo : '10003',
-      CustomerName:'Adm evens',
-      ApprovedBy: 'Tom Ellis',
-      PreparedBy: 'Jill Green',
-      Total: '6900', 
-      Date : '02/02/2021'
-    }
-  ];
-  listOfDisplayData = [...this.listOfData];
+  listOfDisplayData : OrderHistoryItem[]
 
   ngOnInit(): void {
+    this.searchValue = this.getCurrentDate().replace(/\//g , "_")
+    this.search()
+  }
 
+  getCurrentDate(){
+    let date = new Date()
+    let month =  date.getMonth() + 1 ;
+    let today = date.getDate() + "/" + month + "/" + date.getFullYear()
+    return today
   }
 
   reset(): void {
@@ -64,8 +44,23 @@ export class OrderHistoryPageComponent implements OnInit {
   }
 
   search(): void {
-    this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter((item: OrderHistoryItem) => item.CustomerName.indexOf(this.searchValue) !== -1);
+    console.log("Search Triggered")
+    this.fb.getOrderDateDoc().collection(this.searchValue).get().subscribe((data)=>{
+      this.listOfDisplayData = [];
+      data.forEach((row) => {
+        let order_record = row.data()
+        let item : OrderHistoryItem = {
+          OrderNo : order_record["orderDetails"]["orderNo"],
+          InvoiceNo : order_record["orderDetails"]["invoiceNo"],
+          CustomerName :order_record["customerDetails"]["customerName"],
+          ApprovedBy :order_record["otherInfo"]["approvedBy"],
+          PreparedBy :order_record["otherInfo"]["preparedBy"],
+          "Total" :order_record["otherInfo"]["total"],
+          "Date" :order_record["orderDetails"]["orderDate"]
+        }
+        this.listOfDisplayData.push(item)
+      });
+    })
   }
 
 }

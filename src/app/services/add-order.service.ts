@@ -16,6 +16,10 @@ export class AddOrderService {
     return this.angfire.collection("Orders");
   }
 
+  getOrderDateDoc(){
+    return this.angfire.collection("Orders").doc("Date_Sorted")
+  }
+
   getProduct(){
     return this.angfire.collection("Products")
   }

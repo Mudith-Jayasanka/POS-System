@@ -14,19 +14,19 @@
             <form action="/action_page.php" autocomplete="off">
                 <!--<input type="text" [(ngModel)]="matName" id="fname" name="firstname" >-->
                 <label for="ino" style="font-size: 20px; bottom: 62%;">Invoice No :</label>
-                <input type="text" [(ngModel)]="InvoiceNo" id="ino" name="Invoice No" placeholder="XXXX" style="bottom: 60%;">
+                <input type="text" [(ngModel)]="InvoiceNo" id="invoiceno" name="Invoice No" placeholder="XXXX" style="bottom: 60%;">
                 <label for="ono" style="bottom: 50%;">Order no :</label>
-                <input type="text" [(ngModel)]="OrderNo" id="ono" name="Order no" placeholder="XXXX" style="bottom: 48%;" >
+                <input type="text" [(ngModel)]="OrderNo" id="orderno" name="Order no" placeholder="XXXX" style="bottom: 48%;" >
                 <label for="sd" style="font-size: 20px;" style="bottom: 38%;">Supply date :</label>
-                <input type="text" [(ngModel)]="SupplyDate" id="sd" name="Supply date" placeholder="dd/mm/yyyy" style="bottom: 36%;">
+                <input type="text" [(ngModel)]="SupplyDate" id="supplydate" name="Supply date" placeholder="00/00/0000" style="bottom: 36%;">
                 <label for="st" style="bottom: 26%;">Supply time:</label>
-                <input type="text" [(ngModel)]="SupplyTime" id="st" name="SupplyTime" placeholder="00.00" style="bottom: 24%; width:30%;right:30%">
+                <input type="text" [(ngModel)]="SupplyTime" id="supplyTime" name="SupplyTime" placeholder="00.00" style="bottom: 24%; width:30%;right:30%">
                 <select id="SupplyTime2" name="SupplyTime2" [(ngModel)]="SupplyTime2" class="form-control" style="bottom: 24%; width:19%;right:10%;height:11%;">
                     <option  value="AM" >AM</option>
                     <option  value="PM" >PM</option>
                   </select>
                 <label for="srn" style="bottom: 14%;" >supply ref no:</label>
-                <input type="text" [(ngModel)]="SuplierRefNo" id="srn" name="SupplyRefNo" placeholder="XXXX" style="bottom: 12%;">
+                <input type="text" [(ngModel)]="SuplierRefNo" id="supplyrefno" name="SupplyRefNo" placeholder="XXXX" style="bottom: 12%;">
           
             </form>
 
@@ -36,7 +36,7 @@
             <h2 style="text-align: center;"><b><u>Customer Details</u></b></h2>
 
             <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search <br> Customer :</label>
-            <input type="text" autocomplete="off" [(ngModel)]="SearchCustomer" id="ino" name="name" placeholder=" 0XX XXX XXXX" style="font-size:20px;bottom: 67.5%;right: 27%;height: 48px; width:47%">
+            <input type="text" [(ngModel)]="SearchCustomer" id="sc" name="name" placeholder=" 0XX XXX XXXX" style="font-size:20px;bottom: 67.5%;right: 27%;height: 48px; width:47%">
             
             <button style="padding: 5px;bottom: 68%;position: fixed;right:5%;  width:20%;height: 48px;" (click)="searchCustomer()" >Search</button>
             
@@ -45,13 +45,13 @@
               <form action="/action_page.php">
                 <!--<input type="text" [(ngModel)]="matName" id="fname" name="firstname" >-->
                 <label for="ino" style="font-size: 20px; bottom: 48%;">Name :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="Name" id="ino" name="name" placeholder="Customer name" style="bottom: 45%;" >
+                <input type="text" [(ngModel)]="Name" id="cn" name="name" placeholder="Customer name" style="bottom: 45%;" >
                 <label for="ono"style="bottom: 35%;">Phone :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="Phone" id="ono" name="phone" placeholder="0XX XXX XXXX" style="bottom: 32%;" >
+                <input type="text" [(ngModel)]="Phone" id="phone" name="phone" placeholder="0XX XXX XXXX" style="bottom: 32%;" >
                 <label for="sd" style="font-size: 20px;" style="bottom: 22%;">Address :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="Address" id="sd" name="address" placeholder="Customer Address" style="bottom: 19%;">
+                <input type="text" [(ngModel)]="Address" id="address" name="address" placeholder="Customer Address" style="bottom: 19%;">
                 <label for="st"style="bottom: 9%;">Email :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="Email" id="st" name="email" placeholder="Customer Email" style="bottom: 6%;">
+                <input type="text" [(ngModel)]="Email" id="email" name="email" placeholder="Customer Email" style="bottom: 6%;">
           
             </form>
 
@@ -63,11 +63,11 @@
             <div style="width: 50%;height:25%;position: absolute;bottom: 0%;right: 50%;">
                
                 <label for="st" style="bottom: 24%; left:5%;" >Discount :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="Discount" id="st" name="lastname" placeholder="00%" style="margin-left:5%;width:35%;bottom: 22%;left:15%;width: 30%;">
+                <input type="text" [(ngModel)]="Discount" id="discount" name="discountName" placeholder="00%" style="margin-left:5%;width:35%;bottom: 22%;left:15%;width: 30%;">
                 <label for="st" style="bottom: 15.5%; left:5%;">Prepared By :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="PreparedBy" id="st" name="lastname" placeholder="" style="margin-left:5%;width:35%;bottom: 14%;left:15%;width: 30%;">
+                <input type="text" [(ngModel)]="PreparedBy" id="preparedby" name="preparedByName" placeholder="" style="margin-left:5%;width:35%;bottom: 14%;left:15%;width: 30%;">
                 <label for="st" style="bottom: 7%; left:5%;">Approved By :</label>
-                <input type="text" autocomplete="off" [(ngModel)]="ApprovedBy" id="st" name="lastname" placeholder="" style="margin-left:5%;width:35%;bottom: 6%;left:15%;width: 30%;">
+                <input type="text" [(ngModel)]="ApprovedBy" id="approveedby" name="appByName" placeholder="" style="margin-left:5%;width:35%;bottom: 6%;left:15%;width: 30%;">
               
             </div>
             <div style="width: 50%; height:25%;position: absolute;bottom: 0%;right: 0%;">
@@ -103,9 +103,13 @@
 
 <!-- Modal to show printing page -->
 
-<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="1000px">
+<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="800px">
     <ng-container *nzModalContent>
-        <button (click)="print()" style="text-align: center; position: fixed; right: 25%; width: 10%;" >Print</button> 
+        <div id="printbtndiv" >
+          <button id="printbtn"(click)="print()" style="text-align: center;width:150px; height:50px;" >Print</button> 
+          <br>
+        </div>
+        
         <div id="print-section" class="card" style="padding: 0;">
             
           <div class="card-body">

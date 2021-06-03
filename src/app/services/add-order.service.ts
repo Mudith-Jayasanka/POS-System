@@ -12,8 +12,8 @@ export class AddOrderService {
   constructor(private angfire : AngularFirestore) { }
 
 
-  addOrder(Order : Order){
-    return this.angfire.collection("Orders").doc(Order.orderDetails.orderNo.toString()).set(Order);
+  getOrderCollection(){
+    return this.angfire.collection("Orders");
   }
 
   getProduct(){

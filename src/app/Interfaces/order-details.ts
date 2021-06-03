@@ -4,4 +4,5 @@ export interface OrderDetails {
     orderNo : number;
     supplyDate : string;
     supplyRefNo : number;
+    supplyTime : string;
 }

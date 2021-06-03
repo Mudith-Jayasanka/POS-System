@@ -77,18 +77,21 @@ export class AddOrderPageComponent implements OnInit {
     
     if(!this.validateAll()) return
     
-    let fullOrder = this.getOrderObj()
-    this.addOrderService.addOrder(fullOrder).then(()=>{
-      console.log("Order Added")
-    })
+    let fullOrder = this.getOrderObj();
+
+    
+    this.addOrderService.getOrderCollection().doc("Customer_Sorted").collection(fullOrder.customerDetails.phone.toString())
+    .doc(fullOrder.orderDetails.orderNo.toString()).set(fullOrder);
+    this.addOrderService.getOrderCollection().doc("Date_Sorted").collection(fullOrder.orderDetails.orderDate.toString().replace(/\//g, "_"))
+    .doc(fullOrder.orderDetails.orderNo.toString()).set(fullOrder);
   }
 
   validateAll(){
     //Validating Order Details
-    if(!this.isSame(this.InvoiceNo , this.validateInt(this.InvoiceNo))) return false
-    if(!this.isSame(this.OrderNo , this.validateInt(this.OrderNo))) return false
-    if(!this.isSame(this.SuplierRefNo , this.validateInt(this.SuplierRefNo))) return false
-    if(!this.isSame(this.SupplyTime , this.validateTime(this.SupplyTime))) return false
+    if(!this.isSame(this.InvoiceNo , this.validateInt(this.InvoiceNo))) {this.InvoiceNo = this.validateInt(this.InvoiceNo);return false}
+    if(!this.isSame(this.OrderNo , this.validateInt(this.OrderNo))) {this.OrderNo = this.validateInt(this.OrderNo);return false}
+    if(!this.isSame(this.SuplierRefNo , this.validateInt(this.SuplierRefNo))) {this.SuplierRefNo = this.validateInt(this.SuplierRefNo);return false}
+    if(!this.isSame(this.SupplyTime , this.validateTime(this.SupplyTime))) {this.SupplyTime = this.validateTime(this.SupplyTime);return false}
 
     let validDate = this.isValidDate(this.SupplyDate)
     if(validDate != undefined){
@@ -120,7 +123,7 @@ export class AddOrderPageComponent implements OnInit {
   }
 
   validateInt(num : any){
-    if(num === undefined) return undefined
+    if(num === undefined) return num + "<- INVALID"
     if(isNaN(num)){return num + "<- INVALID"}
     return num;
   }
@@ -133,8 +136,8 @@ export class AddOrderPageComponent implements OnInit {
 
     // Parse the date parts to integers
     var parts = dateString.split("/");
-    var day = parseInt(parts[1], 10);
-    var month = parseInt(parts[0], 10);
+    var day = parseInt(parts[0], 10);
+    var month = parseInt(parts[1], 10);
     var year = parseInt(parts[2], 10);
 
     // Check the ranges of month and year
@@ -168,7 +171,8 @@ export class AddOrderPageComponent implements OnInit {
       "orderDate" : this.CurrentDate,
       "supplyDate" : this.SupplyDate,
       "orderNo" : Number.parseInt(this.OrderNo),
-      "supplyRefNo" : Number.parseInt(this.SuplierRefNo)
+      "supplyRefNo" : Number.parseInt(this.SuplierRefNo),
+      "supplyTime" : this.SupplyTime
     }
 
     let otherInfo : OtherOrderInfo;
@@ -176,7 +180,9 @@ export class AddOrderPageComponent implements OnInit {
     otherInfo = {
       "discount" : this.Discount.toString(),
       "approvedBy" : this.ApprovedBy,
-      "preparedBy" : this.PreparedBy
+      "preparedBy" : this.PreparedBy,
+      "subTotal" : this.SubTotal,
+      "total" : this.Total
     }
 
 

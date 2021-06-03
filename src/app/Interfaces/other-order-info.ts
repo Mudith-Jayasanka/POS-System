@@ -1,5 +1,8 @@
 export interface OtherOrderInfo {
-    discount : String;
     approvedBy : String;
     preparedBy : String;
+
+    discount : String;
+    subTotal : string;
+    total : string;
 }

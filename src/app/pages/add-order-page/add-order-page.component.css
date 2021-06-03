@@ -172,3 +172,21 @@
   .imagebtns:active{
     filter:saturate(2);
   }
+
+  #printbtndiv{
+    width: 100%; 
+    height:70px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  #printbtn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    
+  }
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { Offer } from 'src/app/Interfaces/offer';
 import { OfferProductDetails } from 'src/app/Interfaces/offer-product-details';
 import { AddOrderService } from 'src/app/services/add-order.service';
@@ -18,7 +19,7 @@ export class AddOfferComponent implements OnInit {
 
   ProductCode : string; 
 
-  constructor(private fb : AddOrderService) { }
+  constructor(private fb : AddOrderService,private modalService: NzModalService) { }
 
   listOfData: OfferProductDetails[] = [];
 
@@ -117,5 +118,20 @@ export class AddOfferComponent implements OnInit {
     }
     return offer
   }
+
+  notificationcontent:string;
+  modal : any
+  success(): void {
+    this.modal = this.modalService.success({
+      nzTitle: 'This is a notification message',
+      nzContent: this.notificationcontent
+    });
+    //setTimeout(() => modal.destroy(), 1000);
+  }
+
+  closemodal(){
+    this.modal.destroy();
+  }
+
 
 }

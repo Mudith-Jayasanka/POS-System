@@ -12,7 +12,7 @@
         
 
         <div class="billbox"> <!-- | product details & table |  -->
-            <div style="padding: 20px;">
+            <div style="padding: 20px;overflow: scroll; overflow-x:hidden ;height: 500px;">
                 <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
                     <thead>
                       <tr>
@@ -39,9 +39,7 @@
                   </nz-table>
                
             </div>
-            
-
-        </div>
+          </div>
 
         <div class="footer"> <!-- | footer box |  -->
                 <p style="position: relative; font-size: 15px;left:43%;top:22%;"><b>All Rights Reserved NaTree 2021</b></p>

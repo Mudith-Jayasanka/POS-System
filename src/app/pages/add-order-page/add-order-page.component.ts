@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { NgxPrinterService } from 'ngx-printer';
 import { CustomerDetails } from 'src/app/Interfaces/customer-details';
 import { Order } from 'src/app/Interfaces/order';
@@ -45,7 +46,7 @@ export class AddOrderPageComponent implements OnInit {
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
 
-  constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService ,private printerService: NgxPrinterService) { }
+  constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService ,private printerService: NgxPrinterService,private modalService: NzModalService) { }
   isVisible = false;
   orderList: ProductOrder[] = [];
 
@@ -288,5 +289,19 @@ export class AddOrderPageComponent implements OnInit {
     
   ];
 
+
+  notificationcontent:string;
+  modal : any
+  success(): void {
+    this.modal = this.modalService.success({
+      nzTitle: 'This is a notification message',
+      nzContent: this.notificationcontent
+    });
+    //setTimeout(() => modal.destroy(), 1000);
+  }
+
+  closemodal(){
+    this.modal.destroy();
+  }
 
 }

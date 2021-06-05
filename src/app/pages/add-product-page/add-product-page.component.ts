@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
 import { Product } from 'src/app/Interfaces/product';
 import { AddOrderService } from 'src/app/services/add-order.service';
 
@@ -25,7 +26,7 @@ export class AddProductPageComponent implements OnInit {
   PaxPrice : string; //string array to put pax price amounts 
   GeneratedCode:string;
 
-  constructor(private addProdService : AddOrderService) { }
+  constructor(private addProdService : AddOrderService ,private modalService: NzModalService) { }
 
   listOfData: paxdetails[] = [];
   
@@ -158,7 +159,22 @@ export class AddProductPageComponent implements OnInit {
   }
 
 
-  
+  //notification modal
+  //just call this method to invoke the modal
+  notificationcontent:string;
+  modal : any
+  success(): void {
+    this.modal = this.modalService.success({
+      nzTitle: 'This is a notification message',
+      nzContent: this.notificationcontent
+    });
+    //setTimeout(() => modal.destroy(), 1000);
+  }
 
+  closemodal(){
+    this.modal.destroy();
+  }
+
+  
   
 }

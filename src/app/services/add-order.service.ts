@@ -21,14 +21,14 @@ export class AddOrderService {
   }
 
   getProduct(){
-    return this.angfire.collection("Products")
+    return this.angfire.collection("Products").doc("regular_products").collection("data")
+  }
+
+  getProductOffer(){
+    return this.angfire.collection("Products").doc("offer_products").collection("data")
   }
 
   addCustomer(){
     return this.angfire.collection("Customers")
-  }
-
-  addSinglePack(){
-    return this.angfire.collection("Products")
   }
 }

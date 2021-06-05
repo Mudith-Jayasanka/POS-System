@@ -42,7 +42,9 @@ export class AddProductPageComponent implements OnInit {
         generatedCode:this.GeneratedCode.toString()
       }
     ];
-    this.updateOrderListCode()
+    this.updateOrderListCode();
+    this.Pax = "";
+    this.PaxPrice = "";
   }
 
   updateOrderListCode(){
@@ -138,7 +140,7 @@ export class AddProductPageComponent implements OnInit {
   uploadProducts(prodList : Product[]){
     if(prodList.length == 0) return
 
-    this.addProdService.addSinglePack().doc(prodList[0].generatedCode).set(prodList[0]).then((res)=>{
+    this.addProdService.getProduct().doc(prodList[0].generatedCode).set(prodList[0]).then((res)=>{
       console.log("Uploaded  : " + prodList[0].generatedCode)
       prodList.shift()
       this.uploadProducts(prodList)

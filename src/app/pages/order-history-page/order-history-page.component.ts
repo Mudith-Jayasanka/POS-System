@@ -44,7 +44,6 @@ export class OrderHistoryPageComponent implements OnInit {
   }
 
   search(): void {
-    console.log("Search Triggered")
     this.fb.getOrderDateDoc().collection(this.searchValue).get().subscribe((data)=>{
       this.listOfDisplayData = [];
       data.forEach((row) => {

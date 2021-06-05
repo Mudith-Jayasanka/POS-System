@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Offer } from 'src/app/Interfaces/offer';
+import { OfferProductDetails } from 'src/app/Interfaces/offer-product-details';
+import { AddOrderService } from 'src/app/services/add-order.service';
 
-export interface Offerdetails {
-  productCode : string;
-  productName : string;
-  price:string;
-  additionalInfo:string;
-  
-}
 
 @Component({
   selector: 'app-add-offer',
@@ -18,17 +14,13 @@ export class AddOfferComponent implements OnInit {
   OfferName:string;
   OfferCode:string;
   OfferUnitPrice:string;
-  AdditionalInfo:string;
+  AdditionalInfo:string = "";
 
   ProductCode : string; 
-  ProductName :string;
-  ProductPrice :string;
-  ProductAdditionalInfo:string;
-  
 
-  constructor() { }
+  constructor(private fb : AddOrderService) { }
 
-  listOfData: Offerdetails[] = [];
+  listOfData: OfferProductDetails[] = [];
 
   ngOnInit(): void {
   }
@@ -36,24 +28,94 @@ export class AddOfferComponent implements OnInit {
   addRow(): void {
     //if(!this.packDataSet()) return
     //if(this.currentPackAdded()) return
+    this.fb.getProduct().doc(this.ProductCode.toUpperCase()).get().subscribe((data)=>{
+      if(!data.exists) return
+
+      let allData = data.data()
+      this.listOfData = [
+        ...this.listOfData,
+        {
+          productCode : allData["generatedCode"],
+          productName : allData["prodName"],
+          price: allData["price"],
+          additionalInfo: allData["additionalInfo"] 
+        }
+      ];
+    })
     
-    this.listOfData = [
-      ...this.listOfData,
-      {
-        productCode : this. ProductCode.toString(),
-        productName : this.ProductName.toString(),
-        price: this.ProductPrice.toString(),
-        additionalInfo: this.ProductAdditionalInfo.toString()
-      }
-    ];
-    this.updateOfferListCode()
+    
+
   }
 
-  updateOfferListCode(){
 
+  deleteRow(prodCode){
+    this.listOfData = this.listOfData.filter(d => d.productCode !== prodCode);
   }
 
   addOffer(){
+    if(!this.validateAll()) return
+    
+    this.validateOfferFirebase()
+    .then( codeExists => {
+      if(!codeExists) return
 
+      let offer = this.getOfferObj()
+      this.fb.getProduct().doc(this.OfferCode).set(offer)
+      this.fb.getProductOffer().doc(this.OfferCode).set(offer)
+    });
   }
+
+  validateAll(){
+    if(!this.isSame(this.OfferName , this.validateStr(this.OfferName))) {this.OfferName = this.validateStr(this.OfferName);return false}
+    if(!this.isSame(this.OfferCode , this.validateStr(this.OfferCode))) {this.OfferCode = this.validateStr(this.OfferCode);return false}
+    if(!this.isSame(this.OfferUnitPrice , this.validateInt(this.OfferUnitPrice))) {this.OfferUnitPrice = this.validateInt(this.OfferUnitPrice);return false}
+    if(this.listOfData.length < 1) return false
+    return true
+  }
+
+  validateStr(str){
+    if(str === undefined) return str + "<- INVALID"
+    if(/INVALID|</.test(str)) return str + "<- INVALID"
+    if(str == ""){return str + "<- INVALID"}
+    return str;
+  }
+
+  validateOfferFirebase(){
+    //Checks firebase to see if there are any products with the same code
+    return this.fb.getProduct().doc(this.OfferCode).get().toPromise()
+    .then(
+      res => {
+        if(res.exists) {
+          this.OfferCode = ""
+          return false
+        }
+        return true
+      }
+    )
+  }
+
+  validateInt(num : any){
+    if(num === undefined) return num + "<- INVALID"
+    if(num == "") return + "<- INVALID"
+    if(isNaN(num)){return num + "<- INVALID"}
+    return num;
+  }
+
+  isSame(a,b){
+    if(a == b)return true
+    return false
+  }
+
+  getOfferObj(){
+    //Offers are considered as regular products to the system
+    let offer : Offer = {
+      "OfferName" : this.OfferName,
+      "OfferCode" : this.OfferCode,
+      "OfferUnitPrice" : this.OfferUnitPrice,
+      "AdditionalInfo" : this.AdditionalInfo,
+      "offerProducts" : this.listOfData
+    }
+    return offer
+  }
+
 }

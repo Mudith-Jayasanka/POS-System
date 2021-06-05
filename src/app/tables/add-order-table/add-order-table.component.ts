@@ -69,7 +69,7 @@ export class AddOrderTableComponent implements OnInit {
     return this.firebase.getProduct().doc(this.SelectedProductCode).get().subscribe((data) =>{
       if(data.exists){
         let product = data.data();
-        this.fb_menu = product["prodName"]; // GETTTING PRODUCT NAME FOR "Menu" for now
+        this.fb_menu = product["additionalInfo"]; // GETTTING PRODUCT NAME FOR "Menu" for now
         this.fb_rate = product["price"];
         this.calc_price = this.fb_rate * this.SelectedQty;
         this.addRow()

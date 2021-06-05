@@ -117,3 +117,21 @@
   #downrow{
     padding-left: 16%;
   }
+
+  #midcnum{
+    position: absolute;
+    float: left;
+    top: 40.5%;
+    left:50.5%;
+    font-size: 40px;
+    color: #000000cc;
+  }
+
+  #midcnum1{
+    position: absolute;
+    float: left;
+    top: 46%;
+    left:50.5%;
+    font-size: 40px;
+    color: #000000cc;
+  }

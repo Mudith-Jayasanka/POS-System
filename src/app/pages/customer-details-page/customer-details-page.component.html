@@ -7,7 +7,7 @@
         <div class="box">
           <br>
         <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search Customer :</label> 
-            <input type="text" [(ngModel)]="Searchname" id="ino" name="name" placeholder="Customer name" style="font-size:20px;">
+            <input type="text" [(ngModel)]="Searchname" id="ino" name="name" placeholder="Customer Phone No" style="font-size:20px;">
             <button style="padding: 5px;" (click)="searchcustomer()" >Search</button>
             <br><br>
           <nz-table #editRowTable nzBordered [nzData]="listOfDisplayData" >
@@ -17,7 +17,7 @@
                 <th>Phone</th>
                 <th>Address</th>
                 <th>PreparedBy</th>
-                <th>Delete</th>
+                <!--<th>Delete</th>-->
               </tr>
             </thead>
             <tbody>
@@ -26,9 +26,9 @@
                 <td>{{ data.phone }}</td>
                 <td>{{ data.address }}</td>
                 <td>{{ data.email }}</td>
-                <td>
+                <!--<td>
                   <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.offerCode)">Delete</a>
-                </td>
+                </td>-->
               </tr>
             </tbody>
           </nz-table>

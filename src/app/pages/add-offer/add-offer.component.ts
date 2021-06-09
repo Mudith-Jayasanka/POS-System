@@ -32,6 +32,8 @@ export class AddOfferComponent implements OnInit {
     this.fb.getProduct().doc(this.ProductCode.toUpperCase()).get().subscribe((data)=>{
       if(!data.exists) return
 
+      this.ProductCode = ""; //Clearing Text
+
       let allData = data.data()
       this.listOfData = [
         ...this.listOfData,
@@ -59,7 +61,7 @@ export class AddOfferComponent implements OnInit {
     this.validateOfferFirebase()
     .then( codeExists => {
       if(!codeExists) return
-
+      
       let offer = this.getOfferObj()
       this.fb.getProduct().doc(this.OfferCode).set(offer)
       this.fb.getProductOffer().doc(this.OfferCode).set(offer)
@@ -110,7 +112,7 @@ export class AddOfferComponent implements OnInit {
   getOfferObj(){
     //Offers are considered as regular products to the system
     let offer : Offer = {
-      "OfferName" : this.OfferName,
+      "OfferName" : this.OfferName.toUpperCase(),
       "OfferCode" : this.OfferCode,
       "OfferUnitPrice" : this.OfferUnitPrice,
       "AdditionalInfo" : this.AdditionalInfo,

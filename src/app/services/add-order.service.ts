@@ -27,6 +27,9 @@ export class AddOrderService {
   getProductOffer(){
     return this.angfire.collection("Products").doc("offer_products").collection("data")
   }
+  getProductOfferCollection(){
+    return this.angfire.collection("Products").doc("offer_products")
+  }
 
   addCustomer(){
     return this.angfire.collection("Customers")

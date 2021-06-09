@@ -9,7 +9,7 @@
         <div class="box">
           <br>
         <label for="ino" style="font-size: 20px;bottom: 68%;left: 5%;">Search Offer :</label> 
-            <input type="text" [(ngModel)]="SearchOffer" id="ino" name="name" placeholder="Offer name" style="font-size:20px;">
+            <input type="text" [(ngModel)]="searchValue" id="ino" name="name" placeholder="Offer name" style="font-size:20px;">
             <button style="padding: 5px;" (click)="searchOffer()" >Search</button>
             <br><br>
         <nz-table #editRowTable nzBordered [nzData]="listOfData" >
@@ -23,11 +23,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let data of editRowTable.data" class="editable-row">
-                <td>{{ data.offerName }}</td>
-                <td>{{ data.offerCode }}</td>
-                <td>{{ data.products}}</td>
+                <td>{{ data.OfferName }}</td>
+                <td>{{ data.OfferCode }}</td>
+                <td>{{ data.offerProducts}}</td>
                 <td>
-                  <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.offerCode)">Delete</a>
+                  <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.OfferCode)">Delete</a>
                 </td>
               </tr>
             </tbody>

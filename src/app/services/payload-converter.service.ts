@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Offer } from '../Interfaces/offer';
 import { OfferProductDetails } from '../Interfaces/offer-product-details';
+import { Product } from '../Interfaces/product';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,18 @@ export class PayloadConverterService {
       "price" : payload["price"]
     }
     return prodDetails
+  }
+
+  toProuct(payload) : Product{
+    let product : Product = {
+      "additionalInfo":payload["additionalInfo"],
+      "generatedCode":payload["generatedCode"],
+      "meatCode":payload["meatCode"],
+      "menuCode":payload["menuCode"],
+      "pax":payload["pax"],
+      "price":payload["price"],
+      "prodName":payload["prodName"]
+    }
+    return product
   }
 }

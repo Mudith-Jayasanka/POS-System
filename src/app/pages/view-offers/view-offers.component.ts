@@ -52,8 +52,8 @@ export class ViewOffersComponent implements OnInit {
 
   deleteRow(id: string): void {
     //Remove Record From Firestore
-    this.fb.getProductOffer().doc(id).delete();
-    this.fb.getProduct().doc(id).delete();
+    this.fb.getProductOfferCollection().doc(id).delete();
+    this.fb.getProductCollection().doc(id).delete();
 
     //Remove Record from table
     this.listOfData = this.listOfData.filter(d => d.OfferCode!== id);
@@ -61,7 +61,7 @@ export class ViewOffersComponent implements OnInit {
 
   searchOffer(){
     //for the search
-    this.fb.getProductOfferCollection().collection('data',ref=>ref.where('OfferName',"==",this.searchValue.toUpperCase())).get().subscribe((data)=>{
+    this.fb.getProductOfferDoc().collection('data',ref=>ref.where('OfferName',"==",this.searchValue.toUpperCase())).get().subscribe((data)=>{
       if(data.docs.length < 1) return
 
       this.listOfData = [];
@@ -75,7 +75,7 @@ export class ViewOffersComponent implements OnInit {
   fetchAllOffers(){
     //fetching all offers with the assumption that there wont be too many offers
     // console.log("Fetching")
-    this.fb.getProductOffer().get().subscribe((data)=>{
+    this.fb.getProductOfferCollection().get().subscribe((data)=>{
       if(data.docs.length < 1)return
 
       this.listOfData = []

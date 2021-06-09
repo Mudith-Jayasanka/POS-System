@@ -29,7 +29,7 @@ export class AddOfferComponent implements OnInit {
   addRow(): void {
     //if(!this.packDataSet()) return
     //if(this.currentPackAdded()) return
-    this.fb.getProduct().doc(this.ProductCode.toUpperCase()).get().subscribe((data)=>{
+    this.fb.getProductCollection().doc(this.ProductCode.toUpperCase()).get().subscribe((data)=>{
       if(!data.exists) return
 
       this.ProductCode = ""; //Clearing Text
@@ -63,8 +63,8 @@ export class AddOfferComponent implements OnInit {
       if(!codeExists) return
       
       let offer = this.getOfferObj()
-      this.fb.getProduct().doc(this.OfferCode).set(offer)
-      this.fb.getProductOffer().doc(this.OfferCode).set(offer)
+      this.fb.getProductCollection().doc(this.OfferCode).set(offer)
+      this.fb.getProductOfferCollection().doc(this.OfferCode).set(offer)
     });
   }
 
@@ -80,12 +80,12 @@ export class AddOfferComponent implements OnInit {
     if(str === undefined) return str + "<- INVALID"
     if(/INVALID|</.test(str)) return str + "<- INVALID"
     if(str == ""){return str + "<- INVALID"}
-    return str;
+    return str.trim();
   }
 
   validateOfferFirebase(){
     //Checks firebase to see if there are any products with the same code
-    return this.fb.getProduct().doc(this.OfferCode).get().toPromise()
+    return this.fb.getProductCollection().doc(this.OfferCode).get().toPromise()
     .then(
       res => {
         if(res.exists) {

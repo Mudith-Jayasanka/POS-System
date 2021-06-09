@@ -66,7 +66,7 @@ export class AddOrderTableComponent implements OnInit {
   calc_price : number;
 
   validID(){
-    return this.firebase.getProduct().doc(this.SelectedProductCode).get().subscribe((data) =>{
+    return this.firebase.getProductCollection().doc(this.SelectedProductCode).get().subscribe((data) =>{
       if(data.exists){
         let product = data.data();
         this.fb_menu = product["additionalInfo"]; // GETTTING PRODUCT NAME FOR "Menu" for now

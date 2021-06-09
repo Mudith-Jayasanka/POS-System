@@ -100,6 +100,7 @@ export class AddProductPageComponent implements OnInit {
 
 
   validated(){
+    this.Meattype = this.Meattype.trim()
     //Returns True if validations are successfull
     if(!this.valid_prod_name()) return false
     if(this.Meattype === undefined) return false
@@ -110,12 +111,14 @@ export class AddProductPageComponent implements OnInit {
   }
 
   valid_prod_name(){
+    this.ProductName = this.ProductName.trim()
     if(this.ProductName == "") return false
     if(this.ProductName === undefined) return false
     return true
   }
 
   valid_menu_code(){
+    this.MenuCode = this.MenuCode.trim()
     if(this.MenuCode === undefined) return false
     if(this.MenuCode == "") return false
     return true
@@ -141,7 +144,7 @@ export class AddProductPageComponent implements OnInit {
   uploadProducts(prodList : Product[]){
     if(prodList.length == 0) return
 
-    this.addProdService.getProduct().doc(prodList[0].generatedCode).set(prodList[0]).then((res)=>{
+    this.addProdService.getProductCollection().doc(prodList[0].generatedCode).set(prodList[0]).then((res)=>{
       console.log("Uploaded  : " + prodList[0].generatedCode)
       prodList.shift()
       this.uploadProducts(prodList)

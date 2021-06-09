@@ -20,18 +20,36 @@ export class AddOrderService {
     return this.angfire.collection("Orders").doc("Date_Sorted")
   }
 
-  getProduct(){
-    return this.angfire.collection("Products").doc("regular_products").collection("data")
-  }
-
-  getProductOffer(){
-    return this.angfire.collection("Products").doc("offer_products").collection("data")
-  }
-  getProductOfferCollection(){
-    return this.angfire.collection("Products").doc("offer_products")
-  }
-
   addCustomer(){
     return this.angfire.collection("Customers")
   }
+
+  //====================================================================================
+  //Product Related Methods
+
+  getProductCollection(){
+    return this.angfire.collection("Products").doc("regular_products").collection("data")
+  }
+  getProductDoc(){
+    return this.angfire.collection("Products").doc("regular_products")
+  }
+
+  getProductOfferCollection(){
+    return this.angfire.collection("Products").doc("offer_products").collection("data")
+  }
+  getProductOfferDoc(){
+    return this.angfire.collection("Products").doc("offer_products")
+  }
+
+  //Attempts to delete product Offer also in case it exists
+  deleteProduct(docName){
+    docName = docName.toUpperCase();
+    return this.angfire.collection("Products").doc("regular_products").collection("data").doc(docName).delete()
+    .then(()=>{
+      this.angfire.collection("Products").doc("offer_products").collection("data").doc(docName).delete()
+    })
+  }
+
+
+  
 }

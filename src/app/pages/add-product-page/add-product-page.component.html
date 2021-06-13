@@ -43,12 +43,10 @@
         <label for="st"style="bottom: 40.5%;">Additional Info :</label>
         <textarea autocomplete="off" id="w3review" [(ngModel)]="AdditionalInfo" placeholder="Additional Info" name="w3review" rows="4" cols="50" style="bottom: 25%;height: 20%;"></textarea>
         
-        <div class="imagebtns" style="position: absolute;bottom: 6.5%;right: 51%;"> <!-- | view products btn |  -->
+        <div class="imagebtns" style="position: absolute;bottom: 6%;right: 33%;"> <!-- | view products btn |  -->
           <app-view-products></app-view-products>
         </div>
-        <div routerLink="/Order-History" class="imagebtns" style="position: absolute; bottom: 6.5%;right: 17%;padding-left: 20px;"> <!-- | order history btn |  -->
-            <img src="/assets/orderhisbtn.png" alt="d" style="height: 80px;">
-        </div>    
+        
       </div>
 
       <div class="tablebox1"> <!-- | product details & table |  -->
@@ -97,10 +95,10 @@
         </div>-->
 
         <div class="imagebtns" style="position: absolute;bottom: 6.5%;right: 50%;"> <!-- | accept order btn |  -->
-          <img src="/assets/acceptobtn.png" (click)="addProduct()" alt="d" style="height: 80px;">
+          <img src="/assets/prodacc.png" (click)="addProduct()" alt="d" style="height: 80px;">
         </div>
         <div class="imagebtns" style="position: absolute; bottom: 6.5%;right: 22%;" > <!-- | cancel order btn |  -->
-            <img src="/assets/cancelobtn.png" (click)="success()" alt="d" style="height: 80px;">
+            <img src="/assets/prodcan.png" (click)="success()" alt="d" style="height: 80px;">
         </div>
 
       </div>

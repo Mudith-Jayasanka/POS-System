@@ -21,7 +21,7 @@
                 <input type="text" [(ngModel)]="SupplyDate" id="supplydate" name="Supply date" placeholder="00/00/0000" style="bottom: 36%;">
                 <label for="st" style="bottom: 26%;">Supply time:</label>
                 <input type="text" [(ngModel)]="SupplyTime" id="supplyTime" name="SupplyTime" placeholder="00.00" style="bottom: 24%; width:30%;right:30%">
-                <select id="SupplyTime2" name="SupplyTime2" [(ngModel)]="SupplyTime2" class="form-control" style="bottom: 24%; width:19%;right:10%;height:11%;">
+                <select id="SupplyTime2" name="SupplyTime2" [(ngModel)]="SupplyTime2" class="form-control" style="bottom: 24%; width:19%;right:10%;height:11%;font-size: 17px;">
                     <option  value="AM" >AM</option>
                     <option  value="PM" >PM</option>
                   </select>
@@ -85,7 +85,7 @@
             <img src="/assets/print btn.png" alt="d" style="height: 90px;">
         </div>
         <div style="position: absolute;bottom: 6.5%;right: 32.5%;">
-            <app-customer-details-page></app-customer-details-page>
+            <app-view-products></app-view-products>
         </div>
         <div class="imagebtns" (click)="addOrder()" style="position: absolute;bottom: 6.5%;right: 15%;"> <!-- | accept order btn |  -->
             <img src="/assets/acceptobtn.png" alt="d" style="height: 90px;">

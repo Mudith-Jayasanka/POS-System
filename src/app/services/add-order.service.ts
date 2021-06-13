@@ -10,7 +10,9 @@ import { Product } from '../Interfaces/product';
 export class AddOrderService {
 
   constructor(private angfire : AngularFirestore) { }
-
+  
+  //====================================================================================
+  //Order Related Methods
 
   getOrderCollection(){
     return this.angfire.collection("Orders");
@@ -20,10 +22,44 @@ export class AddOrderService {
     return this.angfire.collection("Orders").doc("Date_Sorted")
   }
 
-  addCustomer(){
+  // getOrderCustSort(){
+  //   return this.angfire.collection("Orders").doc("Customer_Sorted")
+  // }
+
+  addOrder(Order : Order){
+    return this.getOrderCollection().doc("Customer_Sorted").collection(Order.customerDetails.phone.toString())
+    .doc(Order.orderDetails.orderNo.toString()).set(Order)
+    .then(()=>{
+      this.getOrderCollection().doc("Date_Sorted").collection(Order.orderDetails.orderDate.toString().replace(/\//g, "_"))
+    .doc(Order.orderDetails.orderNo.toString()).set(Order)
+    })
+  }
+
+  
+
+  //====================================================================================
+  //Customer Related Methods
+
+  getCustomerCollection(){
     return this.angfire.collection("Customers")
   }
 
+  getCustomerDoc(){
+    return this.angfire
+  }
+
+  addCustomer(Customer : CustomerDetails){
+    return this.getCustomerCollection().doc(Customer.phone.toString()).get().subscribe((data)=>{
+      if(!data.exists){
+        //Create New Customer
+        this.getCustomerCollection().doc(Customer.phone.toString()).set(Customer)
+      }
+    })
+  }
+
+  deleteCustomer(phone : string){
+    return this.angfire.collection("Customers").doc(phone).delete()
+  }
   //====================================================================================
   //Product Related Methods
 

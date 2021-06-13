@@ -61,7 +61,6 @@ export class ViewProductsComponent implements OnInit {
 
   searchProduct(){
     //for the search
-    this.searchValue = this.strFormatter.capitalizeName(this.searchValue)
     console.log("Searching For : " + "'"+this.searchValue+"'")
     this.fb.getProductDoc().collection("data" , ref=>ref.where("prodName","==",this.searchValue)).get().subscribe((data)=>{
       console.log(data.docs)

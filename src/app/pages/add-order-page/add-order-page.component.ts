@@ -8,6 +8,7 @@ import { OtherOrderInfo } from 'src/app/Interfaces/other-order-info';
 import { Product } from 'src/app/Interfaces/product';
 import { ProductOrder } from 'src/app/Interfaces/product-order';
 import { AddOrderService } from 'src/app/services/add-order.service';
+import { HelperServiceService } from 'src/app/services/helper-service.service';
 import { SharedAddOrederpageService } from 'src/app/services/shared-add-orederpage.service';
 
 //for test
@@ -46,7 +47,13 @@ export class AddOrderPageComponent implements OnInit {
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
 
-  constructor(private addOrderService : AddOrderService , private shared :SharedAddOrederpageService ,private printerService: NgxPrinterService,private modalService: NzModalService) { }
+  constructor(
+    private addOrderService : AddOrderService , 
+    private shared :SharedAddOrederpageService ,
+    private printerService: NgxPrinterService,
+    private modalService: NzModalService,
+    private helpServ : HelperServiceService
+    ) { }
   isVisible = false;
   orderList: ProductOrder[] = [];
 
@@ -67,10 +74,7 @@ export class AddOrderPageComponent implements OnInit {
   }
 
   setCurrentDate(){
-    let date = new Date()
-    let month =  date.getMonth() + 1 ;
-    let today = date.getDate() + "/" + month + "/" + date.getFullYear()
-    this.CurrentDate = today;
+    this.CurrentDate = this.helpServ.getCurrentDate();
   }
 
   addOrder(){
@@ -80,11 +84,11 @@ export class AddOrderPageComponent implements OnInit {
     
     let fullOrder = this.getOrderObj();
 
-    
-    this.addOrderService.getOrderCollection().doc("Customer_Sorted").collection(fullOrder.customerDetails.phone.toString())
-    .doc(fullOrder.orderDetails.orderNo.toString()).set(fullOrder);
-    this.addOrderService.getOrderCollection().doc("Date_Sorted").collection(fullOrder.orderDetails.orderDate.toString().replace(/\//g, "_"))
-    .doc(fullOrder.orderDetails.orderNo.toString()).set(fullOrder);
+    this.success()
+    this.addOrderService.addOrder(fullOrder)
+    .then(()=>{
+      this.addOrderService.addCustomer(fullOrder.customerDetails)
+    })
   }
 
   validateAll(){
@@ -197,18 +201,10 @@ export class AddOrderPageComponent implements OnInit {
     return order
   }
 
-  addCustomer(Customer : CustomerDetails){
-    this.addOrderService.addCustomer().doc(Customer.phone.toString()).get().subscribe((data)=>{
-      if(!data.exists){
-        //Create New Customer
-        this.addOrderService.addCustomer().doc(Customer.phone.toString()).set(Customer)
-      }
-    });
-  }
 
   searchCustomer(){
     if(this.SearchCustomer === undefined) return
-    this.addOrderService.addCustomer().doc(this.SearchCustomer.toString()).get().subscribe((data)=>{
+    this.addOrderService.getCustomerCollection().doc(this.SearchCustomer.toString()).get().subscribe((data)=>{
       if(data.exists){
         let user = data.data()
         this.Name = user["customerName"]
@@ -267,35 +263,11 @@ export class AddOrderPageComponent implements OnInit {
     this.printerService.printDiv('print-section');
   }
 
-  listOfData: OrderHistoryItem[] = [
-    {
-      offerName : 'offer1',
-      offerCode : '9001',
-      products :'RP-B-m-3 , Yk-m-c-1',
-      
-    },
-    {
-      offerName : 'offer2',
-      offerCode : '9002',
-      products :'RP-B-m-3 , Yk-m-c-1',
-      
-    },
-    {
-      offerName : 'offer3',
-      offerCode : '9003',
-      products :'RP-B-m-3 , Yk-m-c-1',
-      
-    }
-    
-  ];
-
-
-  notificationcontent:string;
   modal : any
   success(): void {
     this.modal = this.modalService.success({
-      nzTitle: 'This is a notification message',
-      nzContent: this.notificationcontent
+      nzTitle: 'Adding Order!',
+      nzContent: "-Please Wait a Second-"
     });
     //setTimeout(() => modal.destroy(), 1000);
   }

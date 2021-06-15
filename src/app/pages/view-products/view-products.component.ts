@@ -61,8 +61,8 @@ export class ViewProductsComponent implements OnInit {
 
   searchProduct(){
     //for the search
-    console.log("Searching For : " + "'"+this.searchValue+"'")
-    this.fb.getProductDoc().collection("data" , ref=>ref.where("prodName","==",this.searchValue)).get().subscribe((data)=>{
+    console.log("Searching For : " + "'"+this.strFormatter.capitalizeName(this.searchValue)+"'")
+    this.fb.getProductDoc().collection("data" , ref=>ref.where("prodName","==",this.strFormatter.capitalizeName(this.searchValue))).get().subscribe((data)=>{
       console.log(data.docs)
       if(data.docs.length  < 1 || data.docs === undefined) {console.log("Not Found");return}
 

@@ -1,30 +1,26 @@
+<div class="hero-image"><!-- | background image |  -->
 
+  <div class="loginbox">
+    <img id="loginboximg" src="assets/loginbox.png" alt="admin,welcome to the pos system">
 
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Sign in</h3>
-      <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
+    <div id="enterbox">
+      <div class="authBlock">
+        <div class="formGroup">
+          <input class="textbox" type="text" class="formControl" placeholder="Username" #userName required>
+        </div>
+  
+        <div class="formGroup">
+          <input class="textbox" type="password" class="formControl" placeholder="Password" #userPassword required>
+        </div>
+  
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="formGroup">
+          <input id="btn" type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
+        </div>
+        <!-- Calling GoogleAuth Api from AuthService -->
+      
       </div>
-
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPassword required>
-      </div>
-
-      <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
-      </div>
-
-
-
-
-
-
-
-      <!-- Calling GoogleAuth Api from AuthService -->
-    
     </div>
   </div>
 </div>
+

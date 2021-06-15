@@ -1,10 +1,12 @@
 <div class="topbox"> <!-- | green box |  -->
     <img id="logo"  src="/assets/nalogow.png" alt="Na tree logo">
-    <li class="nav-item">
+    <a (click)="authService.SignOut()" style="position: absolute;bottom: 17%;left:2% " > 
+        <img src="/assets/btnlogout.png" alt="d"style="height: 59px;"></a>
+    <!--<li class="nav-item">
         <a class="nav-link" (click)="authService.SignOut()">
           <i class="fas fa-sign-out-alt"></i>Log out
         </a>
-      </li>
+    </li>-->
 </div>
 <div class="hero-image"><!-- | background image |  -->
 

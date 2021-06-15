@@ -29,10 +29,13 @@ import { CustomerDetailsPageComponent } from './pages/customer-details-page/cust
 import { ViewProductsComponent } from './pages/view-products/view-products.component';
 import { ViewOffersComponent } from './pages/view-offers/view-offers.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { AddOfferComponent } from './pages/add-offer/add-offer.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { AuthGuard } from "./shared/guard/auth.guard";
+import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard";
 
+// Auth service
+import { AuthService } from "./shared/services/auth.service";
 
 
 
@@ -51,9 +54,8 @@ registerLocaleData(hi);
     CustomerDetailsPageComponent,
     ViewProductsComponent,
     ViewOffersComponent,
-    LoginComponent,
-    RegisterComponent,
-    AddOfferComponent
+    AddOfferComponent,
+    SignInComponent,
     
   ],
   imports: [
@@ -73,7 +75,7 @@ registerLocaleData(hi);
     AngularFireDatabaseModule,
     AngularFirestoreModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US } , AuthGuard , AuthService , SecureInnerPagesGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

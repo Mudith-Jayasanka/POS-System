@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +11,9 @@ export class HomePageComponent implements OnInit {
   Customercount:string;
   OrderCount:string;
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.Customercount='420';

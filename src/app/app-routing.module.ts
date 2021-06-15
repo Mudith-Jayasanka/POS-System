@@ -13,7 +13,8 @@ import { SecureInnerPagesGuard } from "./shared/guard/secure-inner-pages.guard";
 
 const routes: Routes = [
   { path: '',redirectTo:"/sign-in" , pathMatch:"full"},
-  { path: 'homepage', component:HomePageComponent , canActivate: [AuthGuard] },
+  //{ path: 'homepage', component:HomePageComponent , canActivate: [AuthGuard] },
+  { path: 'homepage', component:HomePageComponent},
   { path: 'Add-Order' , component:AddOrderPageComponent , canActivate: [AuthGuard]},
   { path: 'Add-Offers' , component:AddOfferComponent ,  canActivate: [AuthGuard]},
   { path: 'Order-History' , component:OrderHistoryPageComponent ,  canActivate: [AuthGuard]},
